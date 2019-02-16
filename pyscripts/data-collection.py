@@ -21,8 +21,12 @@ def outputVotePath(senateNumber, sessionNumber, voteNumber):
 headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
 }
+proxy_dict = {
+    'http': 'socks5://localhost:4022',
+    'https': 'socks5://localhost:4022',
+}
 
-for senateNumber in range(111, 117):
+for senateNumber in range(116, 110, -1):
 	for sessionNumber in range(1, 3):
 		if not(senateNumber == 116 and sessionNumber == 2):
 
@@ -31,7 +35,7 @@ for senateNumber in range(111, 117):
 			return_code = 503
 			attempt = 0
 			while return_code != 200 and attempt < 5:
-				response = requests.get(URL, headers=headers)
+				response = requests.get(URL, headers=headers, proxies=proxy_dict)
 				print (response)
 				return_code = response.status_code
 				attempt += 1
@@ -51,7 +55,7 @@ for senateNumber in range(111, 117):
 					return_code = 503
 					attempt = 0
 					while return_code != 200 and attempt < 5:
-						response = requests.get(URL, headers=headers)
+						response = requests.get(URL, headers=headers, proxies=proxy_dict)
 						print (response)
 						return_code = response.status_code
 						attempt += 1
