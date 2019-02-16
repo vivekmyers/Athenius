@@ -25,7 +25,7 @@ def get_all_voting_records(loc, kind):
         arr[i][j] == 0 indicates reps[i] voted Nay on bills[j]
         arr[i][j] == 1 indicates reps[i] voted Yea on bills[i]
         arr[i][j] == -1 indicates reps[i] did not vote on bills[j].
-    Bills are represented as (congress, session, vote_number) tuples.
+    Bills are represented as dictionaries with date, result, subject, etc. attributes.
     Representatives are denoted by a string with their name, party, and state.
     '''
     
@@ -39,12 +39,16 @@ def get_all_voting_records(loc, kind):
         try:
             tree = ET.parse(f'{loc}/{i}').getroot()
             if not house:
-                bill = tuple(tree.find(x).text
-                         for x in ['congress', 'session', 'vote_number'])
+                bill = frozenset({x: tree.find(x).text
+                         for x in ['congress', 'session', 'vote_number', 'congress_year', 'vote_date',
+                             'vote_question_text', 'vote_document_text', 'vote_result_text', 
+                             'question', 'vote_title', 'majority_requirement', 'vote_result']}.items())
             else:
                 tmp = tree.find('vote-metadata')
-                bill = tuple(tmp.find(x).text
-                         for x in ['congress', 'session', 'rollcall-num'])
+                bill = frozenset({x: tmp.find(x).text
+                         for x in ['majority', 'congress', 'session', 'rollcall-num', 'legis-num', 
+                             'vote-question', 'vote-type', 'vote-result', 'action-date', 'action-time', 
+                             'vote-desc']}.items())
         except:
             print(f'Unable to read {i}', file=sys.stderr)
             continue
@@ -78,6 +82,6 @@ def get_all_voting_records(loc, kind):
         for bill in votes:
             arr[i][bill_to_int[bill]] = votes[bill]
             
-    return arr, col, all_bills
+    return arr, col, [dict(x) for x in all_bills]
 
 
