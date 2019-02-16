@@ -2,6 +2,7 @@ from os import listdir
 from os.path import isfile, join
 import xml.etree.ElementTree as ET
 import numpy as np
+import sys
 
 def senate_records():
     '''
@@ -45,7 +46,7 @@ def get_all_voting_records(loc, kind):
                 bill = tuple(tmp.find(x).text
                          for x in ['congress', 'session', 'rollcall-num'])
         except:
-            print(f'Unable to read {i}')
+            print(f'Unable to read {i}', file=sys.stderr)
             continue
         # record bill, then add every vote to voting_records dict
         all_bills.append(bill)
