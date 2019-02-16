@@ -18,10 +18,10 @@ headers = {
 
 # if script crashes due to connection err, change resume_year and resume_vote
 # so that the script can pick up from where it left off
-resume_year = 2013
-resume_vote = 617
+resume_year = 2019
+resume_vote = 1
 
-for year in range(2018, 2010, -1):
+for year in range(2019, 2010, -1):
 
 	vote = 1
 
