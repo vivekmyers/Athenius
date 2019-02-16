@@ -82,6 +82,6 @@ def get_all_voting_records(loc, kind):
         for bill in votes:
             arr[i][bill_to_int[bill]] = votes[bill]
             
-    return arr, col, [dict(x) for x in all_bills]
+    return arr, np.array(col), np.array([dict(x) for x in all_bills])
 
 
