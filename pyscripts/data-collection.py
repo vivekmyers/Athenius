@@ -17,8 +17,12 @@ def constructVoteURL(senateNumber, sessionNumber, voteNumber):
 def outputVotePath(senateNumber, sessionNumber, voteNumber):
 	return "data/Senate/Votes/"+str(senateNumber)+"_"+str(sessionNumber)+"_"+str(voteNumber)+".xml"
 
+# Quick hack to bypass webscrape blocker with header:
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
+}
 
-for senateNumber in range(110, 117):
+for senateNumber in range(111, 117):
 	for sessionNumber in range(1, 3):
 		if not(senateNumber == 116 and sessionNumber == 2):
 
@@ -27,7 +31,7 @@ for senateNumber in range(110, 117):
 			return_code = 503
 			attempt = 0
 			while return_code != 200 and attempt < 5:
-				response = session.get(URL)
+				response = requests.get(URL, headers=headers)
 				print (response)
 				return_code = response.status_code
 				attempt += 1
@@ -47,7 +51,7 @@ for senateNumber in range(110, 117):
 					return_code = 503
 					attempt = 0
 					while return_code != 200 and attempt < 5:
-						response = session.get(URL)
+						response = requests.get(URL, headers=headers)
 						print (response)
 						return_code = response.status_code
 						attempt += 1
