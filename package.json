@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/vivekmyers/Treehacks2019/issues"
   },
-  "homepage": "https://github.com/vivekmyers/Treehacks2019#readme"
+  "homepage": "https://github.com/vivekmyers/Treehacks2019#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.7"
+  }
 }
