@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?><roll_call_vote>
   <congress>115</congress>
-  <session>1</session>
-  <congress_year>2017</congress_year>
-  <vote_number>162</vote_number>
-  <vote_date>July 18, 2017,  12:15 PM</vote_date>
-  <modify_date>July 18, 2017,  12:58 PM</modify_date>
-  <vote_question_text>On the Nomination PN583</vote_question_text>
-  <vote_document_text>Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</vote_document_text>
-  <vote_result_text>Nomination Confirmed (92-7)</vote_result_text>
-  <question>On the Nomination</question>
-  <vote_title>Confirmation Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</vote_title>
+  <session>2</session>
+  <congress_year>2018</congress_year>
+  <vote_number>13</vote_number>
+  <vote_date>January 18, 2018,  08:50 PM</vote_date>
+  <modify_date>January 18, 2018,  09:35 PM</modify_date>
+  <vote_question_text>On the Motion to Proceed H.R. 195</vote_question_text>
+  <vote_document_text>A bill to amend title 44, United States Code, to restrict the distribution of free printed copies of the Federal Register to Members of Congress and other officers and employees of the United States, and for other purposes.</vote_document_text>
+  <vote_result_text>Motion to Proceed Agreed to (97-2)</vote_result_text>
+  <question>On the Motion to Proceed</question>
+  <vote_title>Motion to Proceed to the House Message to Accompany H.R. 195</vote_title>
   <majority_requirement>1/2</majority_requirement>
-  <vote_result>Nomination Confirmed</vote_result>
+  <vote_result>Motion to Proceed Agreed to</vote_result>
   <document>
     <document_congress>115</document_congress>
-    <document_type>PN</document_type>
-    <document_number>583</document_number>
-    <document_name>PN583</document_name>
-    <document_title>Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</document_title>
-    <document_short_title/>
+    <document_type>H.R.</document_type>
+    <document_number>195</document_number>
+    <document_name>H.R. 195</document_name>
+    <document_title>A bill to amend title 44, United States Code, to restrict the distribution of free printed copies of the Federal Register to Members of Congress and other officers and employees of the United States, and for other purposes.</document_title>
+    <document_short_title>Federal Register Printing Savings Act of 2017</document_short_title>
   </document>
   <amendment>
     <amendment_number/>
@@ -29,8 +29,8 @@
     <amendment_purpose>No Statement of Purpose on File.</amendment_purpose>
   </amendment>
   <count>
-    <yeas>92</yeas>
-    <nays>7</nays>
+    <yeas>97</yeas>
+    <nays>2</nays>
     <present/>
     <absent>1</absent>
   </count>
@@ -99,7 +99,7 @@
       <first_name>Cory</first_name>
       <party>D</party>
       <state>NJ</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S370</lis_member_id>
     </member>
     <member>
@@ -288,7 +288,7 @@
       <first_name>Tammy</first_name>
       <party>D</party>
       <state>IL</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S386</lis_member_id>
     </member>
     <member>
@@ -346,15 +346,6 @@
       <lis_member_id>S358</lis_member_id>
     </member>
     <member>
-      <member_full>Franken (D-MN)</member_full>
-      <last_name>Franken</last_name>
-      <first_name>Al</first_name>
-      <party>D</party>
-      <state>MN</state>
-      <vote_cast>Yea</vote_cast>
-      <lis_member_id>S332</lis_member_id>
-    </member>
-    <member>
       <member_full>Gardner (R-CO)</member_full>
       <last_name>Gardner</last_name>
       <first_name>Cory</first_name>
@@ -369,7 +360,7 @@
       <first_name>Kirsten</first_name>
       <party>D</party>
       <state>NY</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S331</lis_member_id>
     </member>
     <member>
@@ -396,7 +387,7 @@
       <first_name>Kamala</first_name>
       <party>D</party>
       <state>CA</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S387</lis_member_id>
     </member>
     <member>
@@ -490,6 +481,15 @@
       <lis_member_id>S345</lis_member_id>
     </member>
     <member>
+      <member_full>Jones (D-AL)</member_full>
+      <last_name>Jones</last_name>
+      <first_name>Doug</first_name>
+      <party>D</party>
+      <state>AL</state>
+      <vote_cast>Yea</vote_cast>
+      <lis_member_id>S393</lis_member_id>
+    </member>
+    <member>
       <member_full>Kaine (D-VA)</member_full>
       <last_name>Kaine</last_name>
       <first_name>Timothy</first_name>
@@ -549,7 +549,7 @@
       <first_name>Mike</first_name>
       <party>R</party>
       <state>UT</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Nay</vote_cast>
       <lis_member_id>S346</lis_member_id>
     </member>
     <member>
@@ -567,7 +567,7 @@
       <first_name>Edward</first_name>
       <party>D</party>
       <state>MA</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S369</lis_member_id>
     </member>
     <member>
@@ -666,7 +666,7 @@
       <first_name>Rand</first_name>
       <party>R</party>
       <state>KY</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Nay</vote_cast>
       <lis_member_id>S348</lis_member_id>
     </member>
     <member>
@@ -747,7 +747,7 @@
       <first_name>Bernie</first_name>
       <party>I</party>
       <state>VT</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S313</lis_member_id>
     </member>
     <member>
@@ -805,6 +805,15 @@
       <lis_member_id>S184</lis_member_id>
     </member>
     <member>
+      <member_full>Smith (D-MN)</member_full>
+      <last_name>Smith</last_name>
+      <first_name>Tina</first_name>
+      <party>D</party>
+      <state>MN</state>
+      <vote_cast>Yea</vote_cast>
+      <lis_member_id>S394</lis_member_id>
+    </member>
+    <member>
       <member_full>Stabenow (D-MI)</member_full>
       <last_name>Stabenow</last_name>
       <first_name>Debbie</first_name>
@@ -812,15 +821,6 @@
       <state>MI</state>
       <vote_cast>Yea</vote_cast>
       <lis_member_id>S284</lis_member_id>
-    </member>
-    <member>
-      <member_full>Strange (R-AL)</member_full>
-      <last_name>Strange</last_name>
-      <first_name>Luther</first_name>
-      <party>R</party>
-      <state>AL</state>
-      <vote_cast>Yea</vote_cast>
-      <lis_member_id>S392</lis_member_id>
     </member>
     <member>
       <member_full>Sullivan (R-AK)</member_full>
@@ -900,7 +900,7 @@
       <first_name>Elizabeth</first_name>
       <party>D</party>
       <state>MA</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S366</lis_member_id>
     </member>
     <member>
