@@ -2,22 +2,22 @@
   <congress>115</congress>
   <session>1</session>
   <congress_year>2017</congress_year>
-  <vote_number>162</vote_number>
-  <vote_date>July 18, 2017,  12:15 PM</vote_date>
-  <modify_date>July 18, 2017,  12:58 PM</modify_date>
-  <vote_question_text>On the Nomination PN583</vote_question_text>
-  <vote_document_text>Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</vote_document_text>
-  <vote_result_text>Nomination Confirmed (92-7)</vote_result_text>
+  <vote_number>262</vote_number>
+  <vote_date>November 7, 2017,  12:02 PM</vote_date>
+  <modify_date>December 5, 2017,  10:48 AM</modify_date>
+  <vote_question_text>On the Nomination PN669</vote_question_text>
+  <vote_document_text>John H. Gibson II, of Texas, to be Deputy Chief Management Officer of the Department of Defense</vote_document_text>
+  <vote_result_text>Nomination Confirmed (91-7)</vote_result_text>
   <question>On the Nomination</question>
-  <vote_title>Confirmation Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</vote_title>
+  <vote_title>Confirmation John H. Gibson II, of Texas, to be Deputy Chief Management Officer of the Department of Defense</vote_title>
   <majority_requirement>1/2</majority_requirement>
   <vote_result>Nomination Confirmed</vote_result>
   <document>
     <document_congress>115</document_congress>
     <document_type>PN</document_type>
-    <document_number>583</document_number>
-    <document_name>PN583</document_name>
-    <document_title>Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</document_title>
+    <document_number>669</document_number>
+    <document_name>PN669</document_name>
+    <document_title>John H. Gibson II, of Texas, to be Deputy Chief Management Officer of the Department of Defense</document_title>
     <document_short_title/>
   </document>
   <amendment>
@@ -29,10 +29,10 @@
     <amendment_purpose>No Statement of Purpose on File.</amendment_purpose>
   </amendment>
   <count>
-    <yeas>92</yeas>
+    <yeas>91</yeas>
     <nays>7</nays>
     <present/>
-    <absent>1</absent>
+    <absent>2</absent>
   </count>
   <tie_breaker>
     <by_whom/>
@@ -288,7 +288,7 @@
       <first_name>Tammy</first_name>
       <party>D</party>
       <state>IL</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S386</lis_member_id>
     </member>
     <member>
@@ -576,7 +576,7 @@
       <first_name>John</first_name>
       <party>R</party>
       <state>AZ</state>
-      <vote_cast>Not Voting</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S197</lis_member_id>
     </member>
     <member>
@@ -603,7 +603,7 @@
       <first_name>Robert</first_name>
       <party>D</party>
       <state>NJ</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Not Voting</vote_cast>
       <lis_member_id>S306</lis_member_id>
     </member>
     <member>
@@ -612,7 +612,7 @@
       <first_name>Jeff</first_name>
       <party>D</party>
       <state>OR</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Nay</vote_cast>
       <lis_member_id>S322</lis_member_id>
     </member>
     <member>
@@ -666,7 +666,7 @@
       <first_name>Rand</first_name>
       <party>R</party>
       <state>KY</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Not Voting</vote_cast>
       <lis_member_id>S348</lis_member_id>
     </member>
     <member>

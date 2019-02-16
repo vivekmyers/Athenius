@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?><roll_call_vote>
   <congress>115</congress>
-  <session>1</session>
-  <congress_year>2017</congress_year>
-  <vote_number>162</vote_number>
-  <vote_date>July 18, 2017,  12:15 PM</vote_date>
-  <modify_date>July 18, 2017,  12:58 PM</modify_date>
-  <vote_question_text>On the Nomination PN583</vote_question_text>
-  <vote_document_text>Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</vote_document_text>
-  <vote_result_text>Nomination Confirmed (92-7)</vote_result_text>
+  <session>2</session>
+  <congress_year>2018</congress_year>
+  <vote_number>9</vote_number>
+  <vote_date>January 11, 2018,  01:37 PM</vote_date>
+  <modify_date>January 25, 2018,  12:32 PM</modify_date>
+  <vote_question_text>On the Nomination PN1015</vote_question_text>
+  <vote_document_text>Walter David Counts III, of Texas, to be United States District Judge for the Western District of Texas</vote_document_text>
+  <vote_result_text>Nomination Confirmed (96-0)</vote_result_text>
   <question>On the Nomination</question>
-  <vote_title>Confirmation Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</vote_title>
+  <vote_title>Confirmation Walter David Counts, III, of Texas, to be United States District Judge for the Western District of Texas</vote_title>
   <majority_requirement>1/2</majority_requirement>
   <vote_result>Nomination Confirmed</vote_result>
   <document>
     <document_congress>115</document_congress>
     <document_type>PN</document_type>
-    <document_number>583</document_number>
-    <document_name>PN583</document_name>
-    <document_title>Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</document_title>
+    <document_number>1015</document_number>
+    <document_name>PN1015</document_name>
+    <document_title>Walter David Counts III, of Texas, to be United States District Judge for the Western District of Texas</document_title>
     <document_short_title/>
   </document>
   <amendment>
@@ -29,10 +29,10 @@
     <amendment_purpose>No Statement of Purpose on File.</amendment_purpose>
   </amendment>
   <count>
-    <yeas>92</yeas>
-    <nays>7</nays>
+    <yeas>96</yeas>
+    <nays>0</nays>
     <present/>
-    <absent>1</absent>
+    <absent>4</absent>
   </count>
   <tie_breaker>
     <by_whom/>
@@ -45,7 +45,7 @@
       <first_name>Lamar</first_name>
       <party>R</party>
       <state>TN</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Not Voting</vote_cast>
       <lis_member_id>S289</lis_member_id>
     </member>
     <member>
@@ -99,7 +99,7 @@
       <first_name>Cory</first_name>
       <party>D</party>
       <state>NJ</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Not Voting</vote_cast>
       <lis_member_id>S370</lis_member_id>
     </member>
     <member>
@@ -288,7 +288,7 @@
       <first_name>Tammy</first_name>
       <party>D</party>
       <state>IL</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S386</lis_member_id>
     </member>
     <member>
@@ -346,15 +346,6 @@
       <lis_member_id>S358</lis_member_id>
     </member>
     <member>
-      <member_full>Franken (D-MN)</member_full>
-      <last_name>Franken</last_name>
-      <first_name>Al</first_name>
-      <party>D</party>
-      <state>MN</state>
-      <vote_cast>Yea</vote_cast>
-      <lis_member_id>S332</lis_member_id>
-    </member>
-    <member>
       <member_full>Gardner (R-CO)</member_full>
       <last_name>Gardner</last_name>
       <first_name>Cory</first_name>
@@ -369,7 +360,7 @@
       <first_name>Kirsten</first_name>
       <party>D</party>
       <state>NY</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S331</lis_member_id>
     </member>
     <member>
@@ -396,7 +387,7 @@
       <first_name>Kamala</first_name>
       <party>D</party>
       <state>CA</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S387</lis_member_id>
     </member>
     <member>
@@ -441,7 +432,7 @@
       <first_name>Dean</first_name>
       <party>R</party>
       <state>NV</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Not Voting</vote_cast>
       <lis_member_id>S352</lis_member_id>
     </member>
     <member>
@@ -488,6 +479,15 @@
       <state>WI</state>
       <vote_cast>Yea</vote_cast>
       <lis_member_id>S345</lis_member_id>
+    </member>
+    <member>
+      <member_full>Jones (D-AL)</member_full>
+      <last_name>Jones</last_name>
+      <first_name>Doug</first_name>
+      <party>D</party>
+      <state>AL</state>
+      <vote_cast>Yea</vote_cast>
+      <lis_member_id>S393</lis_member_id>
     </member>
     <member>
       <member_full>Kaine (D-VA)</member_full>
@@ -567,7 +567,7 @@
       <first_name>Edward</first_name>
       <party>D</party>
       <state>MA</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S369</lis_member_id>
     </member>
     <member>
@@ -747,7 +747,7 @@
       <first_name>Bernie</first_name>
       <party>I</party>
       <state>VT</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S313</lis_member_id>
     </member>
     <member>
@@ -805,6 +805,15 @@
       <lis_member_id>S184</lis_member_id>
     </member>
     <member>
+      <member_full>Smith (D-MN)</member_full>
+      <last_name>Smith</last_name>
+      <first_name>Tina</first_name>
+      <party>D</party>
+      <state>MN</state>
+      <vote_cast>Yea</vote_cast>
+      <lis_member_id>S394</lis_member_id>
+    </member>
+    <member>
       <member_full>Stabenow (D-MI)</member_full>
       <last_name>Stabenow</last_name>
       <first_name>Debbie</first_name>
@@ -812,15 +821,6 @@
       <state>MI</state>
       <vote_cast>Yea</vote_cast>
       <lis_member_id>S284</lis_member_id>
-    </member>
-    <member>
-      <member_full>Strange (R-AL)</member_full>
-      <last_name>Strange</last_name>
-      <first_name>Luther</first_name>
-      <party>R</party>
-      <state>AL</state>
-      <vote_cast>Yea</vote_cast>
-      <lis_member_id>S392</lis_member_id>
     </member>
     <member>
       <member_full>Sullivan (R-AK)</member_full>
@@ -900,7 +900,7 @@
       <first_name>Elizabeth</first_name>
       <party>D</party>
       <state>MA</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S366</lis_member_id>
     </member>
     <member>

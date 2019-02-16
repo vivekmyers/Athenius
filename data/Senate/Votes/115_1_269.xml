@@ -2,22 +2,22 @@
   <congress>115</congress>
   <session>1</session>
   <congress_year>2017</congress_year>
-  <vote_number>162</vote_number>
-  <vote_date>July 18, 2017,  12:15 PM</vote_date>
-  <modify_date>July 18, 2017,  12:58 PM</modify_date>
-  <vote_question_text>On the Nomination PN583</vote_question_text>
-  <vote_document_text>Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</vote_document_text>
-  <vote_result_text>Nomination Confirmed (92-7)</vote_result_text>
-  <question>On the Nomination</question>
-  <vote_title>Confirmation Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</vote_title>
+  <vote_number>269</vote_number>
+  <vote_date>November 9, 2017,  01:46 PM</vote_date>
+  <modify_date>November 16, 2017,  04:48 PM</modify_date>
+  <vote_question_text>On the Cloture Motion PN458</vote_question_text>
+  <vote_document_text>Derek Kan, of California, to be Under Secretary of Transportation for Policy</vote_document_text>
+  <vote_result_text>Cloture Motion Agreed to (87-9)</vote_result_text>
+  <question>On the Cloture Motion</question>
+  <vote_title>Motion to Invoke Cloture on Derek Kan, of California, to be Under Secretary of Transportation for Policy</vote_title>
   <majority_requirement>1/2</majority_requirement>
-  <vote_result>Nomination Confirmed</vote_result>
+  <vote_result>Cloture Motion Agreed to</vote_result>
   <document>
     <document_congress>115</document_congress>
     <document_type>PN</document_type>
-    <document_number>583</document_number>
-    <document_name>PN583</document_name>
-    <document_title>Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</document_title>
+    <document_number>458</document_number>
+    <document_name>PN458</document_name>
+    <document_title>Derek Kan, of California, to be Under Secretary of Transportation for Policy</document_title>
     <document_short_title/>
   </document>
   <amendment>
@@ -29,10 +29,10 @@
     <amendment_purpose>No Statement of Purpose on File.</amendment_purpose>
   </amendment>
   <count>
-    <yeas>92</yeas>
-    <nays>7</nays>
+    <yeas>87</yeas>
+    <nays>9</nays>
     <present/>
-    <absent>1</absent>
+    <absent>4</absent>
   </count>
   <tie_breaker>
     <by_whom/>
@@ -81,7 +81,7 @@
       <first_name>Richard</first_name>
       <party>D</party>
       <state>CT</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Nay</vote_cast>
       <lis_member_id>S341</lis_member_id>
     </member>
     <member>
@@ -288,7 +288,7 @@
       <first_name>Tammy</first_name>
       <party>D</party>
       <state>IL</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S386</lis_member_id>
     </member>
     <member>
@@ -396,7 +396,7 @@
       <first_name>Kamala</first_name>
       <party>D</party>
       <state>CA</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S387</lis_member_id>
     </member>
     <member>
@@ -567,7 +567,7 @@
       <first_name>Edward</first_name>
       <party>D</party>
       <state>MA</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S369</lis_member_id>
     </member>
     <member>
@@ -576,7 +576,7 @@
       <first_name>John</first_name>
       <party>R</party>
       <state>AZ</state>
-      <vote_cast>Not Voting</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S197</lis_member_id>
     </member>
     <member>
@@ -603,7 +603,7 @@
       <first_name>Robert</first_name>
       <party>D</party>
       <state>NJ</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Not Voting</vote_cast>
       <lis_member_id>S306</lis_member_id>
     </member>
     <member>
@@ -612,7 +612,7 @@
       <first_name>Jeff</first_name>
       <party>D</party>
       <state>OR</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Nay</vote_cast>
       <lis_member_id>S322</lis_member_id>
     </member>
     <member>
@@ -666,7 +666,7 @@
       <first_name>Rand</first_name>
       <party>R</party>
       <state>KY</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Not Voting</vote_cast>
       <lis_member_id>S348</lis_member_id>
     </member>
     <member>
@@ -720,7 +720,7 @@
       <first_name>Pat</first_name>
       <party>R</party>
       <state>KS</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Not Voting</vote_cast>
       <lis_member_id>S260</lis_member_id>
     </member>
     <member>
@@ -774,7 +774,7 @@
       <first_name>Charles</first_name>
       <party>D</party>
       <state>NY</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Nay</vote_cast>
       <lis_member_id>S270</lis_member_id>
     </member>
     <member>
@@ -837,7 +837,7 @@
       <first_name>Jon</first_name>
       <party>D</party>
       <state>MT</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Not Voting</vote_cast>
       <lis_member_id>S314</lis_member_id>
     </member>
     <member>
@@ -873,7 +873,7 @@
       <first_name>Tom</first_name>
       <party>D</party>
       <state>NM</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Nay</vote_cast>
       <lis_member_id>S326</lis_member_id>
     </member>
     <member>
@@ -927,7 +927,7 @@
       <first_name>Ron</first_name>
       <party>D</party>
       <state>OR</state>
-      <vote_cast>Yea</vote_cast>
+      <vote_cast>Nay</vote_cast>
       <lis_member_id>S247</lis_member_id>
     </member>
     <member>

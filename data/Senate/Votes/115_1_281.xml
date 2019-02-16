@@ -2,22 +2,22 @@
   <congress>115</congress>
   <session>1</session>
   <congress_year>2017</congress_year>
-  <vote_number>162</vote_number>
-  <vote_date>July 18, 2017,  12:15 PM</vote_date>
-  <modify_date>July 18, 2017,  12:58 PM</modify_date>
-  <vote_question_text>On the Nomination PN583</vote_question_text>
-  <vote_document_text>Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</vote_document_text>
-  <vote_result_text>Nomination Confirmed (92-7)</vote_result_text>
+  <vote_number>281</vote_number>
+  <vote_date>November 27, 2017,  05:31 PM</vote_date>
+  <modify_date>November 27, 2017,  06:07 PM</modify_date>
+  <vote_question_text>On the Nomination PN587</vote_question_text>
+  <vote_document_text>Dabney Langhorne Friedrich, of California, to be United States District Judge for the District of Columbia</vote_document_text>
+  <vote_result_text>Nomination Confirmed (97-3)</vote_result_text>
   <question>On the Nomination</question>
-  <vote_title>Confirmation Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</vote_title>
+  <vote_title>Confirmation Dabney Langhorne Friedrich, of California, to be United States District Judge for the District of Columbia</vote_title>
   <majority_requirement>1/2</majority_requirement>
   <vote_result>Nomination Confirmed</vote_result>
   <document>
     <document_congress>115</document_congress>
     <document_type>PN</document_type>
-    <document_number>583</document_number>
-    <document_name>PN583</document_name>
-    <document_title>Patrick M. Shanahan, of Washington, to be Deputy Secretary of Defense</document_title>
+    <document_number>587</document_number>
+    <document_name>PN587</document_name>
+    <document_title>Dabney Langhorne Friedrich, of California, to be United States District Judge for the District of Columbia</document_title>
     <document_short_title/>
   </document>
   <amendment>
@@ -29,10 +29,10 @@
     <amendment_purpose>No Statement of Purpose on File.</amendment_purpose>
   </amendment>
   <count>
-    <yeas>92</yeas>
-    <nays>7</nays>
+    <yeas>97</yeas>
+    <nays>3</nays>
     <present/>
-    <absent>1</absent>
+    <absent/>
   </count>
   <tie_breaker>
     <by_whom/>
@@ -99,7 +99,7 @@
       <first_name>Cory</first_name>
       <party>D</party>
       <state>NJ</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S370</lis_member_id>
     </member>
     <member>
@@ -288,7 +288,7 @@
       <first_name>Tammy</first_name>
       <party>D</party>
       <state>IL</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S386</lis_member_id>
     </member>
     <member>
@@ -396,7 +396,7 @@
       <first_name>Kamala</first_name>
       <party>D</party>
       <state>CA</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S387</lis_member_id>
     </member>
     <member>
@@ -567,7 +567,7 @@
       <first_name>Edward</first_name>
       <party>D</party>
       <state>MA</state>
-      <vote_cast>Nay</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S369</lis_member_id>
     </member>
     <member>
@@ -576,7 +576,7 @@
       <first_name>John</first_name>
       <party>R</party>
       <state>AZ</state>
-      <vote_cast>Not Voting</vote_cast>
+      <vote_cast>Yea</vote_cast>
       <lis_member_id>S197</lis_member_id>
     </member>
     <member>
