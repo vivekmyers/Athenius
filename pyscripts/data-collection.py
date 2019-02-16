@@ -3,7 +3,7 @@ from xml.etree import ElementTree
 
 def constructSessionURL(senateNumber, sessionNumber):
 	res =  "https://www.senate.gov/legislative/LIS/roll_call_lists/vote_menu_" + str(senateNumber) + "_" + str(sessionNumber) + ".xml"
-	print res
+	print (res)
 	return res
 
 def outputSessionURL(senateNumber, sessionNumber):
@@ -24,5 +24,6 @@ for senateNumber in range(110, 117):
 			with open(outputSessionURL(senateNumber, sessionNumber), 'wb') as file:
 				file.write(response.content)
 
-			tree = ElementTree.fromString(response.content)
-			
+			root = ElementTree.fromstring(response.content)
+			votes = len(root[3])
+			print (votes)
