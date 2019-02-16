@@ -22,7 +22,7 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
 }
 
-for senateNumber in range(111, 117):
+for senateNumber in range(112, 117):
 	for sessionNumber in range(1, 3):
 		if not(senateNumber == 116 and sessionNumber == 2):
 
