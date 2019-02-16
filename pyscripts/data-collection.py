@@ -19,11 +19,19 @@ for senateNumber in range(110, 117):
 		if not(senateNumber == 116 and sessionNumber == 2):
 
 			URL = constructSessionURL(senateNumber, sessionNumber)
-			response = requests.get(URL)
-			
-			with open(outputSessionURL(senateNumber, sessionNumber), 'wb') as file:
-				file.write(response.content)
 
-			root = ElementTree.fromstring(response.content)
-			votes = len(root[3])
-			print (votes)
+			return_code = 503
+			attempt = 0
+			while return_code != 200 and attempt < 5:
+				response = requests.get(URL)
+				print (response)
+				return_code = response.status_code
+				attempt += 1
+
+			if return_code == 200:
+				with open(outputSessionURL(senateNumber, sessionNumber), 'wb') as file:
+					file.write(response.content)
+
+				root = ElementTree.fromstring(response.content)
+				votes = len(root[3])
+				print (votes)
