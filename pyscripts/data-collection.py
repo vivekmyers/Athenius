@@ -26,7 +26,7 @@ proxy_dict = {
     'https': 'socks5://localhost:4022',
 }
 
-for senateNumber in range(115, 110, -1):
+for senateNumber in range(114, 110, -1):
 	for sessionNumber in range(1, 3):
 		if not(senateNumber == 116 and sessionNumber == 2):
 
