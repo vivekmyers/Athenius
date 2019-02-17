@@ -6,5 +6,5 @@ arr, reps, bills = data_loader.senate_records(1)
 shuffle(reps)
 
 for i in reps[:3]:
-    print(i)
+    print(i[0])
 
