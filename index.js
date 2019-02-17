@@ -18,8 +18,10 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-var server = app.listen(80, function () {
-    console.log('listening to requests on port 4000');
+const PORT = 80
+
+var server = app.listen(PORT, function () {
+    console.log('listening to requests on port ' + PORT);
 });
 
 app.use(express.static(__dirname + '/public'));
