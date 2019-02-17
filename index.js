@@ -40,14 +40,22 @@ app.post('/knn', function(req, res) {
     proc.stdout.on('data', names => {
         names = names.toString();
         output = [];
+        let len = names.split(/\n/g).length - 1;
         for (let name of names.split(/\n/g)) {
             if (name) {
                 let url = image_dict[name.split(/ /g)[0].toLowerCase()];
-                output.push({name: name, url: url ? url : 'congress.png'});
+                request({url: url}, function (error, response, body) {
+                    if (!error && response.statusCode == 200)
+                        output.push({name: name, url: url ? url: 'congress.png'});
+                    else
+                        output.push({name: name, url: 'congress.png'});
+                    if (output.length == len) {
+                        console.log(output);
+                        res.send(output);
+                    }
+                });
             }
         }
-        console.log(output);
-        res.send(output);
     });
 });
 
