@@ -131,23 +131,24 @@
 		    });
 
 		    $(".back-button").click(function(){
-		        survey_encoding.splice(-1,1);	// remove last element
+		    	if(question_number != 0){
+		    		survey_encoding.splice(-1,1);	// remove last element
+		        	console.log($('.jumbotron')[question_number]);
+		        	$('.jumbotron:eq(' + question_number + ')').removeClass('active-question');
+		        	$('.jumbotron:eq(' + question_number + ')').addClass('hidden-question');
+		        	setTimeout(function(){
+		        		$('.jumbotron:eq(' + question_number + ')').addClass('no-display-question');
+		        		$('.jumbotron:eq(' + question_number + ')').removeClass('hidden-question');
 
-	        	console.log($('.jumbotron')[question_number]);
-	        	$('.jumbotron:eq(' + question_number + ')').removeClass('active-question');
-	        	$('.jumbotron:eq(' + question_number + ')').addClass('hidden-question');
-	        	setTimeout(function(){
-	        		$('.jumbotron:eq(' + question_number + ')').addClass('no-display-question');
-	        		$('.jumbotron:eq(' + question_number + ')').removeClass('hidden-question');
+		        		$('.jumbotron:eq(' + (question_number - 1) + ')').removeClass('no-display-question');
+		        		$('.jumbotron:eq(' + (question_number - 1) + ')').addClass('active-question');
+		        		question_number -= 1;
 
-	        		$('.jumbotron:eq(' + (question_number - 1) + ')').removeClass('no-display-question');
-	        		$('.jumbotron:eq(' + (question_number - 1) + ')').addClass('active-question');
-	        		question_number -= 1;
+		        		var percentage = (question_number / max_question_number) * 100;
+		        		$('.progress-bar:eq(0)').width(percentage + '%');
 
-	        		var percentage = (question_number / max_question_number) * 100;
-	        		$('.progress-bar:eq(0)').width(percentage + '%');
-
-	        	}, 500);
+		        	}, 500);
+		    	}
 		    }); 
 		});
   	</script>
