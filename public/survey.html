@@ -21,10 +21,10 @@
         <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="survey.html">Survey</a>
+        <a class="nav-link" href="survey.html">Represent Me</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="leg-lookup.html">Legislator Lookup</a>
       </li>
     </ul>
   </div>
@@ -71,7 +71,7 @@
     </div><!-- /.container -->
 </div>
 
-<div class="jumbotron vertical-center no-display-question">
+<div id="last-question" class="jumbotron vertical-center no-display-question">
 	<div class="col-4 question">
 
 		<h4 class="question-text">Crunching the numbers ...</h4>
@@ -79,6 +79,11 @@
     </div><!-- /.container -->
 </div>
 
+
+<h1 class="page-header">Your ideology is most similar to:</h1>
+<div class="jumbotron vertical-center-aug col-6 displayRepsContainer">
+	<div id="displayReps" class="card-deck"></div>
+</div>
 
 <div class="navbar bg-light fixed-bottom footer">
 	<div class="col-6 progress-bar-center">
@@ -124,6 +129,15 @@
 
 	        		if(question_number == max_question_number){
 	        			console.log(survey_encoding);
+	        			$.ajax({
+							url: "/knn",
+							data: {survey_encoding},
+							type: "POST",
+							success: function(data) {
+								console.log(data);
+			                    displayRepresentatives(data);
+							}
+						});
 	        		}
 
 
@@ -151,6 +165,25 @@
 		    	}
 		    }); 
 		});
+
+
+		function displayRepresentatives(data){
+			console.log(data);
+			var outStr = "";
+			for(var i = 0; i < data.length; i++){
+
+				outStr += "<div class=\"card\">";
+				outStr += "<img class=\"card-img-top img-fluid\" src=\"";
+				outStr += data[i].url;
+				outStr += "\" alt=\"Representative Image\">";
+				outStr += "<div class=\"card-block\">";
+				outStr += "<h4 class=\"card-title\">" + data[i].name + "</h4>";
+				outStr += "</div></div>"
+			}
+			$('#displayReps').html(outStr);
+			$('#last-question').removeClass('active-question');
+			$('#last-question').hide();
+		}
   	</script>
 
 </body>
