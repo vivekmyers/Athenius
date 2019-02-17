@@ -6,7 +6,7 @@ import sys
 import pickle
 import pandas as pd
 
-def senate_records(cached=False):
+def senate_records(cached=True):
     '''
     Get Senate records as described below.
     If cached is set, use serialized copy.
@@ -18,7 +18,7 @@ def senate_records(cached=False):
         pickle.dump(result, open('senate_records.p', 'wb'))
         return result
 
-def house_records(cached=False):
+def house_records(cached=True):
     '''
     Get House records as described below.
     If cached is set, use serialized copy.
@@ -100,7 +100,8 @@ def get_all_voting_records(loc, kind):
     processed = {a[0] + a[1:].split(',')[0].lower() + f' ({"R" if party_code == 200 else "D" if party_code == 100 else "I"}-{state_abbrev})': 
                     (b, c) for _, a, b, c, state_abbrev, party_code in 
                     nominate_table[['bioname', 'nominate_dim1', 'nominate_dim2', 'state_abbrev', 'party_code']].itertuples()}
-    return arr, np.array([(i, processed[i][0], processed[i][1]) 
+    mask = [i in processed for i in col]
+    return arr[mask], np.array([(i, processed[i][0], processed[i][1]) 
                             for i in col if i in processed]), np.array([dict(x) for x in all_bills])
 
 
