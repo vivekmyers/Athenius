@@ -36,7 +36,30 @@
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
       </div>
 
-      <div id="representatives"></div>
+		<form class="form">
+		  <div class="form-group">
+		    <label for="street-address">Street Address</label>
+		    <input type="text" class="form-control" id="street-address" name="street" placeholder="">
+		  </div>
+		  <div class="form-group">
+		    <label for="city">City</label>
+		    <input type="text" class="form-control" id="city" name="city" placeholder="">
+		  </div>
+		  <div class="form-group">
+		    <label for="state">State</label>
+		    <input type="text" class="form-control" id="state" name="state" placeholder="">
+		  </div>
+		  <div class="form-group">
+		    <label for="zip-code">Zip Code</label>
+		    <input type="text" class="form-control" id="zip-code" name="zip" placeholder="">
+		  </div>
+		  <button type="submit" class="btn btn-primary">Find Legislator</button>
+		</form>
+
+	  <h2>Senate:</h2>
+      <div id="senate-rep"></div>
+      <h2>House of Representatives:</h2>
+      <div id="house-rep"></div>
 
     </div><!-- /.container -->
 
@@ -47,22 +70,40 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
   	<script type="text/javascript">
-  		
-  		$.ajax({
-         url: "/leg-api",
-         type: "GET",
-         success: function(data) {
-         	console.log(data);
-         	
-         	var outStr = "";
-         	for(var i = 0; i < data.number; i++){
-         		outStr += "<div class=\"rep-name\">" + data.officials[i].first_name + " " + data.officials[i].last_name + "</div>";
-         		outStr += "<div class=\"rep-part\">" + data.officials[i].party + "</div>";
-         		outStr += "<img src=\"" + data.officials[i].photo + "\" >";
-         	}
-         	$('#representatives').html(outStr);
-         }
-      });
+
+  		$('form').submit(function() {
+	  		$.ajax({
+				url: "/leg-api/",
+				data: $('form').serialize(),
+				type: "POST",
+				success: function(data) {
+					console.log(data);
+					
+					if(data.hasOwnProperty('senate')){
+						var outStr = "";
+						for(var i = 0; i < data.senate.number; i++){
+							outStr += "<div class=\"rep-name\">" + data.senate.officials[i].first_name + " " + data.senate.officials[i].last_name + "</div>";
+							outStr += "<div class=\"rep-part\">" + data.senate.officials[i].party + "</div>";
+							outStr += "<img src=\"" + data.senate.officials[i].photo + "\" style=\"width:200px;\">";
+						}
+						$('#senate-rep').html(outStr);
+					}
+
+					if(data.hasOwnProperty('house')){
+						var outStr = "";
+						for(var i = 0; i < data.house.number; i++){
+							outStr += "<div class=\"rep-name\">" + data.house.officials[i].first_name + " " + data.house.officials[i].last_name + "</div>";
+							outStr += "<div class=\"rep-part\">" + data.house.officials[i].party + "</div>";
+							outStr += "<img src=\"" + data.house.officials[i].photo + "\" style=\"width:200px;\">";
+						}
+						$('#house-rep').html(outStr);
+					}
+
+				}
+			});
+
+			return false;
+	  	});
   	</script>
 
 </body>
