@@ -3,18 +3,31 @@ from os.path import isfile, join
 import xml.etree.ElementTree as ET
 import numpy as np
 import sys
+import pickle
 
-def senate_records():
+def senate_records(cached=False):
     '''
     Get Senate records as described below.
+    If cached is set, use serialized copy.
     '''
-    return get_all_voting_records('../data/Senate/Votes', 'senate')
+    if cached:
+        return pickle.load(open('senate_records.p', 'rb'))
+    else:
+        result = get_all_voting_records('../data/Senate/Votes', 'senate')
+        pickle.dump(result, open('senate_records.p', 'wb'))
+        return result
 
-def house_records():
+def house_records(cached=False):
     '''
     Get House records as described below.
+    If cached is set, use serialized copy.
     '''
-    return get_all_voting_records('../data/House/Votes', 'house')
+    if cached:
+        return pickle.load(open('house_records.p', 'rb'))
+    else:
+        result = get_all_voting_records('../data/House/Votes', 'house')
+        pickle.dump(result, open('house_records.p', 'wb'))
+        return result
 
 def get_all_voting_records(loc, kind):
     '''
