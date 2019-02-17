@@ -7,5 +7,5 @@ from user_score import nearestNeighbors
 args = np.array([float(x) for x in sys.argv[1:]])
 print(args, file=sys.stderr)
 for i in nearestNeighbors(args):
-    print(i)
+    print(i[0])
 
