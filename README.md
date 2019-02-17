@@ -1,6 +1,6 @@
 # Atheni.us
 
-Rohan Deshpande, Vinjai Vale, Vivek Myers, Nikhil Sardana; TreeHacks 2019
+Rohan Deshpande, Vinjai Vale, Vivek Myers, Nikhil Sardana for TreeHacks 2019
 
 ## Description
 
