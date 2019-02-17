@@ -63,9 +63,9 @@ def get_all_voting_records(loc, kind):
                 rep = member.find('member_full').text
             try:
                 choice = ['Nay', 'Yea'].index(
-                    member.find('vote' if house else 'vote_cast').text)
+                    member.find('vote' if house else 'vote_cast').text) * 2 - 1
             except ValueError:
-                choice = -1
+                choice = 0
             if rep not in voting_records:
                 voting_records[rep] = {}
             voting_records[rep][bill] = choice
