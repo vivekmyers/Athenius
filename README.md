@@ -1,4 +1,14 @@
-# Athenius
+# Atheni.us
+
+## Description
+
+## Features
+
+* Quick 16 question questionaire on 'Represent Me' determines users political views
+* User's political views are matched to three legislators with most similar views
+* User can find his/her legislators based on input location
+* User can compare his/her political views to their legislator's views
+* Email subscription service to send user notification when legislator votes on bill in a way that user doesn't agree with
 
 ### Use source code (run locally):
 
