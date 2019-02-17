@@ -80,6 +80,9 @@ def nearestNeighbors(votes, m=2, n=1):
     y = [float(rep[2]) for rep in allreps]
     names = [rep[0] for rep in allreps]
     c = [("red" if rep[0][-5] == "R" else "blue") for rep in allreps]
+    x.append(score[0])
+    y.append(score[1])
+    c.append("green")
 
     norm = plt.Normalize(1,4)
 
@@ -115,7 +118,7 @@ def nearestNeighbors(votes, m=2, n=1):
 
     fig.canvas.mpl_connect("motion_notify_event", hover)
 
-    mpld3.save_html(fig, "nominateplot.html")
+    mpld3.save_html(fig, "../public/nominateplot.html")
 
     dists = []
     indices = list(range(len(senatereps)))
@@ -153,8 +156,7 @@ def getVote(rep_name, bill_idx, isHouse):
         if(rep_idx == None): return 0
         return arr_h[rep_idx][bill_idx]
 
-def votingHistory(votes, name, ish):
-    isHouse = ish == 'true'
+def votingHistory(votes, name, isHouse):
     SNN, HNN = nearestNeighbors(votes, 5, 5)
     results = []
     if not isHouse:
