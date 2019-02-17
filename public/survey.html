@@ -20,18 +20,20 @@
       <li class="nav-item">
         <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="survey.html">Represent Me</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="leg-lookup.html">Legislator Lookup</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="signup.html">Stay Aware</a>
       </li>
     </ul>
   </div>
 </nav>
+
+<h4 class="instructions">Answer a couple quick questions...</h4>
 
 <div class="jumbotron vertical-center active-question">
 	<div class="col-4 question">
@@ -108,6 +110,9 @@
 
   		$(document).ready(function() {
 		    $(".btn").click(function(){
+
+		    	$('.instructions').hide();
+
 		        var className = $(this)[0].classList[1];
 		        if(className == "btn-success"){
 		        	survey_encoding.push(1);
@@ -151,6 +156,9 @@
 
 		    $(".back-button").click(function(){
 		    	if(question_number != 0){
+		    		if(question_number == 1){
+		    			$('.instructions').show();
+		    		}
 		    		survey_encoding.splice(-1,1);	// remove last element
 		        	console.log($('.jumbotron')[question_number]);
 		        	$('.jumbotron:eq(' + question_number + ')').removeClass('active-question');
