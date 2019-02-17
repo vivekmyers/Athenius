@@ -101,7 +101,7 @@ def get_all_voting_records(loc, kind):
                     (b, c) for _, a, b, c, state_abbrev, party_code in 
                     nominate_table[['bioname', 'nominate_dim1', 'nominate_dim2', 'state_abbrev', 'party_code']].itertuples()}
     mask = [i in processed for i in col]
-    return arr[mask], np.array([(i, processed[i][0], processed[i][1]) 
+    return arr[mask], np.array([(i, float(processed[i][0]), float(processed[i][1])) 
                             for i in col if i in processed]), np.array([dict(x) for x in all_bills])
 
 
