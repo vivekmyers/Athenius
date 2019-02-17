@@ -60,19 +60,29 @@
 
       var cookie_data = {"survey_encoding" : $.cookie("survey_encoding"), "legislators":$.cookie("legislators")};
 
+      console.log(cookie_data);
+
   		$('form').submit(function() {
-	  		$.ajax({
-				url: "/submit-email/",
-                data: {form: $('form').serialize(), cookie: cookie_data},
-				type: "POST",
-                success: function(data) {
-                    if (data.result !=  "Success!") {
-                        $('#badaddr').html(`<br><h3>${data.result}</h3>`);
-                    } else {
-                        $('#result').html(`<br><h3>${data.result}</h3>`);
-                    }
-                }
-            });
+        if(typeof $.cookie("survey_encoding") === "undefined"){
+          alert("Oops! You haven't filled the form on the Represent Me page.");
+        }
+        else if(typeof $.cookie("legislators") === "undefined"){
+          alert("Oops! You haven't filled the form on the Legislator Lookup page.");
+        }
+        else{
+          $.ajax({
+            url: "/submit-email/",
+            data: {form: $('form').serialize(), cookie: cookie_data},
+            type: "POST",
+            success: function(data) {
+              if (data.result !=  "Success!") {
+                $('#badaddr').html(`<br><h3>${data.result}</h3>`);
+              } else {
+                  $('#result').html(`<br><h3>${data.result}</h3>`);
+              }
+            }
+          });
+        }
 			return false;
 	  	});
   	</script>
