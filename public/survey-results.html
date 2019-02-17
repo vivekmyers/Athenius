@@ -53,10 +53,11 @@
 
   		$('form').submit(function() {
 	  		$.ajax({
-				url: "/knn-get/",
+				url: "/knn/",
 				data: $('form').serialize(),
 				type: "POST",
 				success: function(data) {
+                    $('#display-results').text('');
 					console.log(data);
                     for (let d in data) {
                         $('#display-results').append(`<p> ${d} </p>`);
