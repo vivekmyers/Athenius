@@ -18,7 +18,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-const PORT = 80
+const PORT = Number(process.argv[2])
 
 var server = app.listen(PORT, function () {
     console.log('listening to requests on port ' + PORT);
