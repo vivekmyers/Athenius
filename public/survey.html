@@ -36,6 +36,49 @@
 
 <h4 class="instructions">Answer a couple quick questions...</h4>
 
+
+<div class="jumbotron vertical-center active-question">
+	<div class="col-4 question">
+
+		<div class="back-button">
+		  <div class="arrow-wrap">
+		    <span class="arrow-part-1"></span>
+		    <span class="arrow-part-2"></span>
+		    <span class="arrow-part-3"></span>
+		  </div>
+		</div>
+
+		<form class="form">
+			<h4 class="question-text">Do you want the U.S. to build the Keystone XL pipeline even if it doesn't reduce energy dependence on the middle east?</h4>
+			<button type="button" class="btn btn-danger" onchange="nextQuestion(this)">No</button>
+			<button type="button" class="btn btn-success" onchange="nextQuestion(this)">Yes</button>
+		</form>
+
+    </div><!-- /.container -->
+</div>
+
+<div class="jumbotron vertical-center active-question">
+	<div class="col-4 question">
+
+		<div class="back-button">
+		  <div class="arrow-wrap">
+		    <span class="arrow-part-1"></span>
+		    <span class="arrow-part-2"></span>
+		    <span class="arrow-part-3"></span>
+		  </div>
+		</div>
+
+		<form class="form">
+			<h4 class="question-text">The environmental costs of the Keystone XL pipeline outweigh the energy benefits.</h4>
+			<button type="button" class="btn btn-danger" onchange="nextQuestion(this)">Disagree</button>
+			<button type="button" class="btn btn-success" onchange="nextQuestion(this)">Agree</button>
+		</form>
+
+    </div><!-- /.container -->
+</div>
+
+
+
 <div class="jumbotron vertical-center active-question">
 	<div class="col-4 question">
 
@@ -105,7 +148,7 @@
 
   		var survey_encoding = [];
   		var question_number = 0;
-  		var max_question_number = 2;
+  		var max_question_number = 4;
 
   		console.log()
 
