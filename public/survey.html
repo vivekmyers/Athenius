@@ -380,6 +380,7 @@
 <h1 class="page-header">Your ideology is most similar to:</h1>
 <div class="jumbotron vertical-center-aug col-6 displayRepsContainer">
 	<div id="displayReps" class="card-deck"></div>
+	<iframe id="result" src=""></iframe>
 </div>
 
 <div class="navbar bg-light fixed-bottom footer">
@@ -495,6 +496,8 @@
 			$('#last-question').hide();
 			$('.progress').hide();
 			$('#to-leg').show();
+			$('#result').removeAttr("src");
+			$('#result').attr("src", "nominateplot.html");
 		}
 
 		$(document).ready(function() {
