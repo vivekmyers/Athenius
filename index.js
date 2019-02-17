@@ -21,7 +21,7 @@ app.use(express.static(__dirname + '/public'));
 app.post('/knn-get', function (req, res) {
     console.log(req.body);
     args = ['knn_get.py'];
-    for (let i of req.body.vector.split(/,/g)) {
+    for (let i of req.body) {
         args.push(i);
     }
     console.log(args);
