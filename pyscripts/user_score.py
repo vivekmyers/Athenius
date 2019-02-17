@@ -153,25 +153,25 @@ def getVote(rep_name, bill_idx, isHouse):
         if(rep_idx == None): return 0
         return arr_h[rep_idx][bill_idx]
 
-def votingHistory(votes, sen1, sen2, rep1):
+def votingHistory(votes, name, isHouse):
     SNN, HNN = nearestNeighbors(votes, 5, 5)
-    sen1Results = []
-    sen2Results = []
-    rep1Results = []
-    for bill_idx in range(len(bills_s)):
-        committee = [getVote(sen[0], bill_idx, False) for sen in SNN]
-        sen1vote = getVote(sen1, bill_idx, False)
-        sen2vote = getVote(sen2, bill_idx, False)
-        committeevote = sum(committee)
-        if(committeevote >= 1): committeevote = 1
-        if(committeevote <= -1): committeevote = -1
-        if(sen1vote and committeevote != 0): sen1Results.append([bills_s[bill_idx], committeevote, sen1vote])
-        if(sen2vote and committeevote != 0): sen2Results.append([bills_s[bill_idx], committeevote, sen2vote])
-    for bill_idx in range(len(bills_h)):
-        committee = [getVote(rep[0], bill_idx, True) for rep in HNN]
-        rep1vote = getVote(rep1, bill_idx, True)
-        committeevote = sum(committee)
-        if(committeevote >= 1): committeevote = 1
-        if(committeevote <= -1): committeevote = -1
-        if(rep1vote and committeevote != 0): rep1Results.append([bills_h[bill_idx], committeevote, rep1vote])
-    return sen1Results, sen2Results, rep1Results
+    results = []
+    if not isHouse:
+        for bill_idx in range(len(bills_s)):
+            committee = [getVote(sen[0], bill_idx, False) for sen in SNN]
+            repvote = getVote(name, bill_idx, False)
+            committeevote = sum(committee)
+            if(committeevote >= 1): committeevote = 1
+            if(committeevote <= -1): committeevote = -1
+            if(repvote and committeevote != 0): results.append([bills_s[bill_idx], committeevote, repvote])
+            if(repvote and committeevote != 0): results.append([bills_s[bill_idx], committeevote, repvote])
+    else:
+        for bill_idx in range(len(bills_h)):
+            committee = [getVote(rep[0], bill_idx, False) for rep in HNN]
+            repvote = getVote(name, bill_idx, False)
+            committeevote = sum(committee)
+            if(committeevote >= 1): committeevote = 1
+            if(committeevote <= -1): committeevote = -1
+            if(repvote and committeevote != 0): results.append([bills_h[bill_idx], committeevote, repvote])
+            if(repvote and committeevote != 0): results.append([bills_h[bill_idx], committeevote, repvote])
+    return results
