@@ -1,31 +1,24 @@
-#display-representatives{
-	display: none;
-	margin-top: 30px;
-	background-color: rgb(248, 249, 250);
-	padding-top:30px;
-	padding-bottom:30px;
-	border-radius: 10px;
+html{
+	height: 100%;
 }
 
-.card-img-top{
-	max-width: 15em;
-	margin: auto;
-	margin-top: 0px;
-	margin-bottom: 10px;
+body {
+  overflow-y:hidden;
+  height: 100%;
+  color: white;
 }
 
-.card-deck{
-	margin-bottom: 30px;
+hr{
+	border-color: gray;
+}
+
+#hero{
+	background-image: url(https://s.abcnews.com/images/Politics/gty_state_of_union_jc_160930_16x9_992.jpg);
+	background-size: 100%;
+	box-shadow: 0 3000px rgba(10, 30, 45, 0.75) inset;
+}
+
+#banner{
+	margin-top: 200px;
 	text-align: center;
-}
-
-.show-rep-container{
-	display: block !important;
-}
-
-.card-text{
-	padding: 15px;
-	padding-top: 0px;
-	text-align: left;
-	text-indent: 50px;
 }
