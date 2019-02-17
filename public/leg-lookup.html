@@ -24,6 +24,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="leg-lookup.html">Legislator Lookup</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="signup.html">Stay Aware</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -52,6 +55,7 @@
 			  </div>
 		  </div>
 		  <button type="submit" class="btn btn-primary">Find Legislator</button>
+		  <button type="button" id="get-emails" class="btn btn-success" href="signup.html">Get Emails Notifications</button>
 		</form>
 
 		<div id="display-representatives" class="container">
@@ -70,6 +74,21 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
   	<script type="text/javascript">
+
+  		$(document).ready(function() {
+		    $("#get-emails").click(function(){
+		    	console.log(document.cookie);
+		    	if(document.cookie == ""){
+		    		window.location.href = "survey.html";
+		    	}
+		    	else{
+		    		window.location.href = "sign-up.html";	
+		    	}
+		    });
+		});
+
+
+  		
 
   		$('form').submit(function() {
 	  		$.ajax({
@@ -117,6 +136,7 @@
 			});
 
 	  		$("#display-representatives").addClass('show-rep-container');
+	  		$('#get-emails').addClass('get-emails-active');
 
 			return false;
 	  	});

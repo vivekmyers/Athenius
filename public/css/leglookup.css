@@ -1,6 +1,3 @@
-body {
-  overflow-y:hidden;
-}
 
 #display-representatives{
 	display: none;
@@ -32,4 +29,15 @@ body {
 	padding-top: 0px;
 	text-align: left;
 	text-indent: 50px;
+}
+
+#get-emails{
+	display: none;
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+
+.get-emails-active{
+	display: inline-block !important;
+	opacity: 1 !important;	
 }
