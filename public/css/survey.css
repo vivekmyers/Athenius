@@ -36,6 +36,10 @@ body{
 }
 
 
+#to-interactiv-viz{
+	display: none;
+}
+
 #to-leg{
 	display: none;
 	float: right;

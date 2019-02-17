@@ -382,13 +382,12 @@
 	<div id="displayReps" class="card-deck"></div>
 </div>
 
-<iframe id="result" src="" style="display: none;"></iframe>
-
 <div class="navbar bg-light fixed-bottom footer">
 	<div class="col-6 progress-bar-center">
 	<div class="progress">
 	  <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 	</div>
+	<a href="nominateplot.html"><button type="button" id="to-interactiv-viz" class="btn btn-info">See Interactive Graph</button></a>
 	<button type="button" id="to-leg" class="btn btn-success">Next: Look up my legislators!</button>
 </div>
 </div>
@@ -497,9 +496,7 @@
 			$('#last-question').hide();
 			$('.progress').hide();
 			$('#to-leg').show();
-			$('#result').removeAttr("src");
-			$('#result').attr("src", "nominateplot.html");
-			$('#result').show();
+			$('#to-interactiv-viz').show();
 		}
 
 		$(document).ready(function() {
