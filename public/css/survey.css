@@ -35,6 +35,13 @@ body{
 	opacity: 0;
 }
 
+
+#to-leg{
+	display: none;
+	float: right;
+}
+
+
 .page-header{
 	line-height: 20vh;
 	width: 100%;
