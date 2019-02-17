@@ -5,8 +5,9 @@ from sklearn.manifold import TSNE, MDS
 from sklearn.decomposition import PCA
 import numpy as np
 import math
+import os
 
-arr, reps, bills = np.load("senate_votes_d.npy")
+arr, reps, bills = np.load("senate_votes_r.npy")
 print(arr.shape)
 print(arr.T[0].shape)
 print(reps)
@@ -56,12 +57,15 @@ print(f'{"-" * 20} CENTERS CENTERS CENTERS {i} {"-" * 20}')
 ctz = KMeans(n_clusters=num_clust).fit(arr.T)
 print(ctz.cluster_centers_)
 
+cc = np.empty([num_clust, arr.T[0].shape[0]])
+
+q = 0
 for i in ctz.cluster_centers_:
 	print()
 	print()
 	print()
-	print(f'{"-" * 20} A Center Follows {i} {"-" * 20}')
-	print()
+	print(f'{"-" * 20} A Center Follows {"-" * 20}')
+	print(i)
 	mindist = math.inf
 	minbill = None
 	for j in range(len(bills)):
@@ -75,10 +79,15 @@ for i in ctz.cluster_centers_:
 
 	print(bills[minbill].get("vote_title"))
 	print(arr.T[minbill])
-	print(mindist)
-	print(np.absolute(arr.T[minbill] - i))
-	print(np.sum(np.absolute(arr.T[minbill] - i)))
+	cc[q] = arr.T[minbill]
+	#print(mindist)
+	#print(np.absolute(arr.T[minbill] - i))
+	#print(np.sum(np.absolute(arr.T[minbill] - i)))
+	q += 1
 
+print(cc)
+
+np.save("filename", cc)
 """
 for i in range(num_clust):
     print(f'{"-" * 20} Cluster {i} {"-" * 20}')

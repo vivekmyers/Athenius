@@ -18,8 +18,10 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-var server = app.listen(4000, function () {
-    console.log('listening to requests on port 4000');
+const PORT = 80
+
+var server = app.listen(PORT, function () {
+    console.log('listening to requests on port ' + PORT);
 });
 
 app.use(express.static(__dirname + '/public'));
@@ -37,6 +39,9 @@ app.post('/knn', function(req, res) {
         args.push(i);
     }
     proc = spawn('python3', args, {cwd: 'pyscripts'});
+    proc.stderr.on('data', err => {
+        console.log(err.toString());
+    });
     proc.stdout.on('data', names => {
         names = names.toString();
         output = [];
@@ -62,7 +67,17 @@ app.post('/knn', function(req, res) {
 app.post('/submit-email', function (req, res) {
     let entry = `${req.body.form.split('=')[1]}, ${req.body.cookie}\n`;
     console.log(entry);
-    fs.appendFile("database.txt", entry, err => {});
+    if (!entry.includes("%40")) {
+        res.send({result: 'Invalid Address'});
+        return;
+    }
+    fs.appendFile("database.txt", entry, err => {
+        if (!err) {
+            res.send({result: 'Success!'});
+        } else {
+            res.send({result: 'An error occured'});
+        }
+    });
 });
 
 app.post('/leg-api', function (req, res) {

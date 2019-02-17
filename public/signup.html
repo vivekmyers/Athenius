@@ -33,10 +33,10 @@
 </nav>
 
     <div class="container">
-
         <h3 class="mt-5">Wonder how your legislators vote?</h3>
         <h5 class="mt-10"> Enter your email to get a notification whenever your legislatures vote in a way you might not agree with...</h5>
 
+    <div id="result">
 		<form class="form">
 			<div class="form-group">
 		    <label for="email">Email:</label>
@@ -44,11 +44,12 @@
 		  </div>
 		  <button type="submit" class="btn btn-primary">Stay Aware</button>
 		</form>
+        <div id="badaddr"></div>
+    </div>
        
 
 
     </div><!-- /.container -->
-    <div class="container" id="result"></div>
 
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -65,7 +66,11 @@
                 data: {form: $('form').serialize(), cookie: cookie_data},
 				type: "POST",
                 success: function(data) {
-                    $('result').html('<p>Success!</p>');
+                    if (data.result !=  "Success!") {
+                        $('#badaddr').html(`<br><h3>${data.result}</h3>`);
+                    } else {
+                        $('#result').html(`<br><h3>${data.result}</h3>`);
+                    }
                 }
             });
 			return false;
