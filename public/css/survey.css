@@ -1,0 +1,96 @@
+body{
+	background-color: rgb(233,236,239);
+}
+
+.question{
+	margin:auto;
+	background-color:white;
+	padding: 50px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	min-height: 150px;
+	text-align: center;
+}
+
+.question-text{
+	margin-bottom: 40px;
+}
+
+.question button{
+	margin-left: 25px;
+	margin-right: 25px;
+	min-width: 75px;
+}
+
+.vertical-center {
+  min-height: 85%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 85vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+.footer{
+	height: 75px;
+}
+
+.progress-bar-center{
+	margin:auto;
+}
+
+
+
+.back-button {
+	z-index: 1;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	border: #03A9F4 1px solid;
+	overflow: hidden;
+	transition: background 0.3s ease;
+}
+.back-button.back .arrow-wrap {
+  left: -50%;
+}
+.back-button:hover {
+  background: #03A9F4;
+}
+.back-button:hover .arrow-wrap span {
+  background: #fff;
+}
+.back-button .arrow-wrap {
+  display: block;
+  position: absolute;
+  height: 70%;
+  width: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: left 0.3s ease;
+}
+.back-button .arrow-wrap span {
+  height: 1px;
+  left: 0;
+  top: 50%;
+  background: #03A9F4;
+  position: absolute;
+  display: block;
+  transition: background 0.3s ease;
+}
+.back-button .arrow-wrap .arrow-part-1 {
+  width: 100%;
+  transform: translate(0, -50%);
+}
+.back-button .arrow-wrap .arrow-part-2 {
+  width: 60%;
+  transform: rotate(-45deg);
+  transform-origin: 0 0;
+}
+.back-button .arrow-wrap .arrow-part-3 {
+  width: 60%;
+  transform: rotate(45deg);
+  transform-origin: 0 0;
+}
