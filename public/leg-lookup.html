@@ -5,6 +5,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/leglookup.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="/js/jquery.cookie.js"></script>
 </head>
 <body>
 
@@ -70,13 +73,13 @@
 
 	<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
   
   	<script type="text/javascript">
 
   		$(document).ready(function() {
-		    $("#get-emails").click(function(){
+  			console.log('page-loaded');
+  			$("#get-emails").click(function(){
 		    	console.log(document.cookie);
 		    	if(document.cookie == ""){
 		    		window.location.href = "survey.html";
@@ -85,61 +88,71 @@
 		    		window.location.href = "signup.html";	
 		    	}
 		    });
-		});
+  			$('form').submit(function() {
+		  		$.ajax({
+					url: "/leg-api/",
+					data: $('form').serialize(),
+					type: "POST",
+					success: function(data) {
+						console.log(data);
+						
+						var repNames = [];
+
+						if(data.hasOwnProperty('senate')){
+							var outStr = "";
+							for(var i = 0; i < data.senate.number; i++){
+
+								var name = data.senate.officials[i].first_name + " " + data.senate.officials[i].last_name;
+								repNames.push(name);
+
+								outStr += "<div class=\"card\">";
+								outStr += "<img class=\"card-img-top img-fluid\" src=\"";
+								outStr += data.senate.officials[i].photo;
+								outStr += "\" alt=\"Representative Image\">";
+								outStr += "<div class=\"card-block\">";
+								outStr += "<h4 class=\"card-title\">" + data.senate.officials[i].first_name + " " + data.senate.officials[i].last_name + "</h4>";
+								outStr += "<h5>" + data.senate.officials[i].party + "</h5>";
+								outStr += "<p class=\"card-text\">" + data.senate.officials[i].bio[0] + "</p>";
+								outStr += "</div></div>"
+							}
 
 
-  		
+							$('#senate-rep').html(outStr);
+						}
 
-  		$('form').submit(function() {
-	  		$.ajax({
-				url: "/leg-api/",
-				data: $('form').serialize(),
-				type: "POST",
-				success: function(data) {
-					console.log(data);
+						if(data.hasOwnProperty('house')){
+							var outStr = "";
+							for(var i = 0; i < data.house.number; i++){
+
+								var name = data.house.officials[i].first_name + " " + data.house.officials[i].last_name;
+								repNames.push(name);
+
+								outStr += "<div class=\"card\">";
+								outStr += "<img class=\"card-img-top img-fluid\" src=\"";
+								outStr += data.house.officials[i].photo;
+								outStr += "\" alt=\"Representative Image\">";
+								outStr += "<div class=\"card-block\">";
+								outStr += "<h4 class=\"card-title\">" + data.house.officials[i].first_name + " " + data.house.officials[i].last_name + "</h4>";
+								outStr += "<h5>" + data.house.officials[i].party + "</h5>";
+								outStr += "<p class=\"card-text\">" + data.house.officials[i].bio[0] + "</p>";
+								outStr += "</div></div>"
+							}
+							$('#house-rep').html(outStr);
+						}
+						console.log(data);
 					
-					if(data.hasOwnProperty('senate')){
-						var outStr = "";
-						for(var i = 0; i < data.senate.number; i++){
-							outStr += "<div class=\"card\">";
-							outStr += "<img class=\"card-img-top img-fluid\" src=\"";
-							outStr += data.senate.officials[i].photo;
-							outStr += "\" alt=\"Representative Image\">";
-							outStr += "<div class=\"card-block\">";
-							outStr += "<h4 class=\"card-title\">" + data.senate.officials[i].first_name + " " + data.senate.officials[i].last_name + "</h4>";
-							outStr += "<h5>" + data.senate.officials[i].party + "</h5>";
-							outStr += "<p class=\"card-text\">" + data.senate.officials[i].bio[0] + "</p>";
-							outStr += "</div></div>"
-						}
-
-
-						$('#senate-rep').html(outStr);
+						console.log(repNames)
+						$.cookie("legislators", JSON.stringify(repNames));
 					}
+				});
 
-					if(data.hasOwnProperty('house')){
-						var outStr = "";
-						for(var i = 0; i < data.house.number; i++){
-							outStr += "<div class=\"card\">";
-							outStr += "<img class=\"card-img-top img-fluid\" src=\"";
-							outStr += data.house.officials[i].photo;
-							outStr += "\" alt=\"Representative Image\">";
-							outStr += "<div class=\"card-block\">";
-							outStr += "<h4 class=\"card-title\">" + data.house.officials[i].first_name + " " + data.house.officials[i].last_name + "</h4>";
-							outStr += "<h5>" + data.house.officials[i].party + "</h5>";
-							outStr += "<p class=\"card-text\">" + data.house.officials[i].bio[0] + "</p>";
-							outStr += "</div></div>"
-						}
-						$('#house-rep').html(outStr);
-					}
+		  		$("#display-representatives").addClass('show-rep-container');
+		  		$('#get-emails').addClass('get-emails-active');
 
-				}
-			});
+				return false;
+		  	});
+  		});
 
-	  		$("#display-representatives").addClass('show-rep-container');
-	  		$('#get-emails').addClass('get-emails-active');
-
-			return false;
-	  	});
   	</script>
 
 </body>

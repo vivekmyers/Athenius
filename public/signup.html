@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/leglookup.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/js/jquery.cookie.js"></script>
 </head>
 <body>
 
@@ -57,12 +58,12 @@
   
   	<script type="text/javascript">
 
-  		console.log(document.cookie);
+      var cookie_data = {"survey_encoding" : $.cookie("survey_encoding"), "legislators":$.cookie("legislators")};
 
   		$('form').submit(function() {
 	  		$.ajax({
 				url: "/submit-email/",
-                data: {form: $('form').serialize(), cookie: document.cookie},
+                data: {form: $('form').serialize(), cookie: cookie_data},
 				type: "POST",
                 success: function(data) {
                     if (data.result !=  "Success!") {
