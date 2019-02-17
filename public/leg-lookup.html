@@ -52,7 +52,7 @@
 			  </div>
 		  </div>
 		  <button type="submit" class="btn btn-primary">Find Legislator</button>
-		  <a href="sign-up.html" id="get-emails" class="btn btn-success" role="button">Get Emails Notifications</a>
+		  <button type="button" id="get-emails" class="btn btn-success" href="signup.html">Get Emails Notifications</button>
 		</form>
 
 		<div id="display-representatives" class="container">
@@ -74,12 +74,18 @@
 
   		$(document).ready(function() {
 		    $("#get-emails").click(function(){
-		    	$('#get-emails').addClass('get-emails-active');
+		    	console.log(document.cookie);
+		    	if(document.cookie == ""){
+		    		window.location.href = "survey.html";
+		    	}
+		    	else{
+		    		window.location.href = "sign-up.html";	
+		    	}
 		    });
 		});
 
 
-  		console.log(document.cookie);
+  		
 
   		$('form').submit(function() {
 	  		$.ajax({
