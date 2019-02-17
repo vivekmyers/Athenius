@@ -129,6 +129,7 @@
 
 	        		if(question_number == max_question_number){
 	        			console.log(survey_encoding);
+						document.cookie = "survey_encoding=" + JSON.stringify(survey_encoding);
 	        			$.ajax({
 							url: "/knn",
 							data: {survey_encoding},
