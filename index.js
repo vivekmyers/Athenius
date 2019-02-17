@@ -18,7 +18,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-var server = app.listen(4000, function () {
+var server = app.listen(80, function () {
     console.log('listening to requests on port 4000');
 });
 
