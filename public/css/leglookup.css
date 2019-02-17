@@ -1,0 +1,35 @@
+body {
+  overflow-y:hidden;
+}
+
+#display-representatives{
+	display: none;
+	margin-top: 30px;
+	background-color: rgb(248, 249, 250);
+	padding-top:30px;
+	padding-bottom:30px;
+	border-radius: 10px;
+}
+
+.card-img-top{
+	max-width: 15em;
+	margin: auto;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+.card-deck{
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.show-rep-container{
+	display: block !important;
+}
+
+.card-text{
+	padding: 15px;
+	padding-top: 0px;
+	text-align: left;
+	text-indent: 50px;
+}
