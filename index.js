@@ -30,10 +30,10 @@ app.get('/congress/', function(req, res) {
     res.send({name: req.query.name, url: result});
 });
 
-app.post('/knn/', function(req, res) {
+app.post('/knn', function(req, res) {
     console.log(req.body);
     args = ['knn_get.py'];
-    for (let i of req.body.vector) {
+    for (let i of req.body.survey_encoding) {
         args.push(i);
     }
     proc = spawn('python3', args, {cwd: 'pyscripts'});

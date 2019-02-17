@@ -34,6 +34,17 @@ body{
 	opacity: 0;
 }
 
+.page-header{
+	line-height: 20vh;
+	width: 100%;
+	text-align: center;
+}
+
+.vertical-center-aug {
+  display: flex;
+  align-items: center;
+}
+
 .vertical-center {
   min-height: 85%;  /* Fallback for browsers do NOT support vh unit */
   min-height: 85vh; /* These two lines are counted as one :-)       */
@@ -54,6 +65,18 @@ body{
 	margin:auto;
 }
 
+#displayReps{
+	width: 100%;
+	text-align: center;
+}
+
+#displayReps h4{
+	margin-top: 15px;
+}
+
+.displayRepsContainer{
+	margin: auto;
+}
 
 
 .back-button {
