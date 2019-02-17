@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import mpld3
+import data_loader
 
 # TODO(nikhil): will be provided by nikhil
 # senate_centroids_d = [[0,0]]*34
@@ -17,25 +18,23 @@ def nominateScoreFromSinglePoint(arr, reps, centroid, vote):
     """
     ns = []
     dists = []
-    for i in range(len(arr.shape[1])):
-        count = 0
-        ns.append([0, 0])
-        for j in range(len(arr.shape[0])):
+    for i in range(arr.shape[1]):
+        ns.append([0, 0, 0])
+        for j in range(arr.shape[0]):
             if arr[j][i] == vote:
-                ns[i][0] += reps[j][1]
-                ns[i][1] += reps[j][2]
+                ns[i][0] += float(reps[j][1])
+                ns[i][1] += float(reps[j][2])
+                ns[i][2] += 1
                 dists.append(np.linalg.norm(centroid - arr[:, i]))
-        ns[i][0] /= count
-        ns[i][1] /= count
     ns = np.array([n for _, n in sorted(zip(dists, ns))])
     k = 5
-    avg = [0, 0]
+    count = 0
+    sums = [0, 0, 0]
     for i in range(k):
-        avg[0] += ns[i][0]
-        avg[1] += ns[i][1]
-    avg[0] /= k
-    avg[1] /= k
-    return avg
+        sums[0] += ns[i][0]
+        sums[1] += ns[i][1]
+        sums[2] += ns[i][2]
+    return sums
 
 def nominateScoreFromPoints(arr, reps, centroids, votes):
     """
@@ -44,28 +43,26 @@ def nominateScoreFromPoints(arr, reps, centroids, votes):
     centroids: list of coords of question in reps-basis
     votes: list of 1 for yea, -1 for nay
     """
-    avg = [0, 0]
+    sums = [0, 0, 0]
     for i in range(len(centroids)):
         single = nominateScoreFromSinglePoint(arr, reps, centroids[i], votes[i])
-        avg[0] += single[0]
-        avg[1] += single[1]
-    avg[0] /= i
-    avg[1] /= i
-    return avg
+        sums[0] += single[0]
+        sums[1] += single[1]
+        sums[2] += single[2]
+    return sums
 
 def nominateScore(votes):
     """Predict user's nominate score based on their responses to the questions."""
-    overall_avg = [0,0]
+    overallsums = [0,0,0]
     votefiles = ["senate_votes_d.npy", "senate_votes_r.npy", "house_votes_d.npy", "house_votes_r.npy"]
     centroidfiles = ["senate_centroids_d.npy", "senate_centroids_r.npy", "house_centroids_d.npy", "house_centroids_r.npy"]
     for i in range(4):
         arr, reps, bills = np.load(votefiles[i])
-        subscore = nominateScoreFromPoints(arr, reps, np.load(centroidfiles[i]), votes[i*5:(i+1)*5])
-        overall_avg[0] += subscore[0]
-        overall_avg[1] += subscore[1]
-    overall_avg[0] /= 4
-    overall_avg[1] /= 4
-    return overall_avg
+        subscore = nominateScoreFromPoints(arr, reps, np.load(centroidfiles[i]), votes[i*4:(i+1)*4])
+        overallsums[0] += subscore[0]
+        overallsums[1] += subscore[1]
+        overallsums[2] += subscore[2]
+    return [overallsums[0]/overallsums[2], overallsums[1]/overallsums[2]]
 
 def nearestNeighbors(votes, m=2, n=1):
     """Find closest m members of senate followed by closest n members of house, and save plots."""
@@ -76,8 +73,8 @@ def nearestNeighbors(votes, m=2, n=1):
 #     # plots
 #     fig = plt.figure()
 #     allreps = np.concatenate((senatereps, housereps))
-#     x = [rep[1] for rep in allreps]
-#     y = [rep[2] for rep in allreps]
+#     x = [float(rep[1]) for rep in allreps]
+#     y = [float(rep[2]) for rep in allreps]
 #     names = [rep[0] for rep in allreps]
 #     c = [("red" if rep[0][-5] == "R" else "blue") for rep in allreps]
 
@@ -116,15 +113,17 @@ def nearestNeighbors(votes, m=2, n=1):
 #     fig.canvas.mpl_connect("motion_notify_event", hover)
 
 #     mpld3.save_html(fig, "nominateplot.html")
-    
-    ret = []
+
     dists = []
+    indices = list(range(len(senatereps)))
     for i in range(len(senatereps)):
-        dists.append((senatereps[i][1]-score[0])**2 + (senatereps[i][2]-score[1])**2)
-    ret += [rep for _, rep in sorted(zip(dists, senatereps))][:m]
+        dists.append((float(senatereps[i][1])-score[0])**2 + (float(senatereps[i][2])-score[1])**2)
+    ret = [senatereps[index] for _, index in sorted(zip(dists, indices))][:m]
+
     dists = []
+    indices = list(range(len(housereps)))
     for i in range(len(housereps)):
-        dists.append((housereps[i][1]-score[0])**2 + (housereps[i][2]-score[1])**2)
-    ret += [rep for _, rep in sorted(zip(dists, senatereps))][:n]
-    
-    return ret
+        dists.append((float(housereps[i][1])-score[0])**2 + (float(housereps[i][2])-score[1])**2)
+    ret2 = [housereps[index] for _, index in sorted(zip(dists, indices))][:n]    
+
+    return [ret, ret2]
