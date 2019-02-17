@@ -60,8 +60,10 @@
                     $('#display-results').text('');
 					console.log(data);
                     for (let d in data) {
-                        $('#display-results').append(`<p> ${d} </p>`);
+                        $('#display-results').append(`<div>`);
+                        $('#display-results').append(`<h3> ${d} </h3>`);
                         $('#display-results').append(`<img width=300 src="${data[d]}" alt="${d}" />`);
+                        $('#display-results').append(`</div>`);
                     }
 				}
 			});
