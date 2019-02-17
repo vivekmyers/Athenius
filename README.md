@@ -1,10 +1,12 @@
 # Atheni.us
 
+Rohan Deshpande, Vinjai Vale, Vivek Myers, Nikhil Sardana; TreeHacks 2019
+
 ## Description
 
-Athenius is a novel solution applying data science techniques to address some of the greatest inefficiencies plaguing modern politics: uninformed voters and poor turnouts.  Most voters, let alone most citizens, are not aware of the inner workings of Congress.  In particular, it is difficult to keep tabs on the very representatives that one votes to office.  Bills are complicated, and we cannot expect everyday citizens to personally evaluate how their representatives vote on each bill.  So how can voters evaluate how well they are *truly* being represented in Congress?
+Athenius (www.atheni.us) is a novel solution applying data science techniques to address some of the greatest inefficiencies plaguing modern politics: uninformed voters and poor turnouts.  Most voters, let alone most citizens, are not aware of the inner workings of Congress.  In particular, it is difficult to keep tabs on the very representatives that one votes to office.  Bills are complicated, and we cannot expect everyday citizens to personally evaluate how their representatives vote on each bill.  So how can voters evaluate how well they are *truly* being represented in Congress?
 
-To the best of our knowledge, Athenius is the first modern technology to address this question, making national politics accessible and easy-to-follow for all citizens.
+To the best of our knowledge, Athenius is the first modern technology to address this question, making national politics accessible and easy-to-follow for all citizens.  We use unsupervised clustering and dimensionality reduction algorithms to understand the key issues being addressed in recent Congress bills, 
 
 ## Features
 
@@ -39,3 +41,4 @@ $ npm test						# starts web-server on port 4000
 
 ## Development challenges
 
+It turns out that the underlying analytics problem here was a lot more nontrivial than we originally thought.  In particular, 

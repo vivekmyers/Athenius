@@ -73,49 +73,49 @@ def nearestNeighbors(votes, m=2, n=1):
     senatereps = reps_s
     housereps = reps_h
 
-#     # plots
-#     fig = plt.figure()
-#     allreps = np.concatenate((senatereps, housereps))
-#     x = [float(rep[1]) for rep in allreps]
-#     y = [float(rep[2]) for rep in allreps]
-#     names = [rep[0] for rep in allreps]
-#     c = [("red" if rep[0][-5] == "R" else "blue") for rep in allreps]
+    # plots
+    fig = plt.figure()
+    allreps = np.concatenate((senatereps, housereps))
+    x = [float(rep[1]) for rep in allreps]
+    y = [float(rep[2]) for rep in allreps]
+    names = [rep[0] for rep in allreps]
+    c = [("red" if rep[0][-5] == "R" else "blue") for rep in allreps]
 
-#     norm = plt.Normalize(1,4)
+    norm = plt.Normalize(1,4)
 
-#     fig,ax = plt.subplots()
-#     sc = plt.scatter(x,y,c=c, s=100, norm=norm)
+    fig,ax = plt.subplots()
+    sc = plt.scatter(x,y,c=c, s=100, norm=norm)
 
-#     annot = ax.annotate("", xy=(0,0), xytext=(20,20),textcoords="offset points",
-#                         bbox=dict(boxstyle="round", fc="w"),
-#                         arrowprops=dict(arrowstyle="->"))
-#     annot.set_visible(False)
+    annot = ax.annotate("", xy=(0,0), xytext=(20,20),textcoords="offset points",
+                        bbox=dict(boxstyle="round", fc="w"),
+                        arrowprops=dict(arrowstyle="->"))
+    annot.set_visible(False)
 
-#     def update_annot(ind):
-#         pos = sc.get_offsets()[ind["ind"][0]]
-#         annot.xy = pos
-#         text = "{}, {}".format(" ".join(list(map(str,ind["ind"]))), 
-#                                " ".join([names[n] for n in ind["ind"]]))
-#         annot.set_text(text)
-#         annot.get_bbox_patch().set_facecolor(cmap(norm(c[ind["ind"][0]])))
-#         annot.get_bbox_patch().set_alpha(0.4)
+    def update_annot(ind):
+        pos = sc.get_offsets()[ind["ind"][0]]
+        annot.xy = pos
+        text = "{}, {}".format(" ".join(list(map(str,ind["ind"]))), 
+                               " ".join([names[n] for n in ind["ind"]]))
+        annot.set_text(text)
+        annot.get_bbox_patch().set_facecolor(cmap(norm(c[ind["ind"][0]])))
+        annot.get_bbox_patch().set_alpha(0.4)
 
-#     def hover(event):
-#         vis = annot.get_visible()
-#         if event.inaxes == ax:
-#             cont, ind = sc.contains(event)
-#             if cont:
-#                 update_annot(ind)
-#                 annot.set_visible(True)
-#                 fig.canvas.draw_idle()
-#             else:
-#                 if vis:
-#                     annot.set_visible(False)
-#                     fig.canvas.draw_idle()
+    def hover(event):
+        vis = annot.get_visible()
+        if event.inaxes == ax:
+            cont, ind = sc.contains(event)
+            if cont:
+                update_annot(ind)
+                annot.set_visible(True)
+                fig.canvas.draw_idle()
+            else:
+                if vis:
+                    annot.set_visible(False)
+                    fig.canvas.draw_idle()
 
-#     fig.canvas.mpl_connect("motion_notify_event", hover)
+    fig.canvas.mpl_connect("motion_notify_event", hover)
 
-#     mpld3.save_html(fig, "nominateplot.html")
+    mpld3.save_html(fig, "nominateplot.html")
 
     dists = []
     indices = list(range(len(senatereps)))
@@ -153,7 +153,8 @@ def getVote(rep_name, bill_idx, isHouse):
         if(rep_idx == None): return 0
         return arr_h[rep_idx][bill_idx]
 
-def votingHistory(votes, name, isHouse):
+def votingHistory(votes, name, ish):
+    isHouse = ish == 'true'
     SNN, HNN = nearestNeighbors(votes, 5, 5)
     results = []
     if not isHouse:
