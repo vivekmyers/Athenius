@@ -10,7 +10,9 @@ Sen Dem
 SEN REPUBLICAN
 
 1. Do you want the U.S. to build the Keystone XL pipeline even if it doesn't reduce energy dependence on the middle east?
-1 - Yes
+most republicans voted: 1 - Yes
 
-2. The energy benefits of the Keystone XL pipeline outweigh the environmental costs.
+2. The environmental costs of the Keystone XL pipeline outweigh the energy benefits.
+most republicans voted: -1 - Nay - they do outweight
 
+3. he Act increases funding for CBP, ICE, and the U.S. Secret Service.
