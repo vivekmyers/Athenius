@@ -39,11 +39,11 @@ app.post('/knn/', function(req, res) {
     proc = spawn('python', args, {cwd: 'pyscripts'});
     proc.stdout.on('data', names => {
         names = names.toString();
-        output = {};
+        output = [];
         for (let name of names.split(/\n/g)) {
             if (name) {
                 let url = image_dict[name.split(/ /g)[0].toLowerCase()];
-                output[name] = url ? url : 'congress.png';
+                output.push({name: name, url: url ? url : 'congress.png'});
             }
         }
         console.log(output);

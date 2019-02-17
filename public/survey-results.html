@@ -59,10 +59,10 @@
 				success: function(data) {
                     $('#display-results').text('');
 					console.log(data);
-                    for (let d in data) {
+                    for (let d of data) {
                         $('#display-results').append(`<div>`);
-                        $('#display-results').append(`<h3> ${d} </h3>`);
-                        $('#display-results').append(`<img width=300 src="${data[d]}" alt="${d}" />`);
+                        $('#display-results').append(`<h3> ${d.name} </h3>`);
+                        $('#display-results').append(`<img width=300 src="${d.url}" alt="${d.name}" />`);
                         $('#display-results').append(`</div>`);
                     }
 				}
