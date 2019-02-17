@@ -30,7 +30,7 @@
   </div>
 </nav>
 
-<div class="jumbotron vertical-center">
+<div class="jumbotron vertical-center active-question">
 	<div class="col-4 question">
 
 		<div class="back-button">
@@ -43,12 +43,42 @@
 
 		<form class="form">
 			<h4 class="question-text">Stronger Gun Control?</h4>
-			<button type="button" class="btn btn-danger">Disagree</button>
-			<button type="button" class="btn btn-success">Agree</button>
+			<button type="button" class="btn btn-danger" onchange="nextQuestion(this)">Disagree</button>
+			<button type="button" class="btn btn-success" onchange="nextQuestion(this)">Agree</button>
 		</form>
 
     </div><!-- /.container -->
 </div>
+
+
+<div class="jumbotron vertical-center no-display-question">
+	<div class="col-4 question">
+
+		<div class="back-button">
+		  <div class="arrow-wrap">
+		    <span class="arrow-part-1"></span>
+		    <span class="arrow-part-2"></span>
+		    <span class="arrow-part-3"></span>
+		  </div>
+		</div>
+
+		<form class="form">
+			<h4 class="question-text">Do you belive in climate change?</h4>
+			<button type="button" class="btn btn-danger" onchange="nextQuestion(this)">Disagree</button>
+			<button type="button" class="btn btn-success" onchange="nextQuestion(this)">Agree</button>
+		</form>
+
+    </div><!-- /.container -->
+</div>
+
+<div class="jumbotron vertical-center no-display-question">
+	<div class="col-4 question">
+
+		<h4 class="question-text">Crunching the numbers ...</h4>
+		<div class="loadingspinner"></div>	
+    </div><!-- /.container -->
+</div>
+
 
 <div class="navbar bg-light fixed-bottom footer">
 	<div class="col-6 progress-bar-center">
@@ -61,9 +91,41 @@
   
   	<script type="text/javascript">
 
-  		$('form').submit(function() {
-			return false;
-	  	});
+  		var survey_encoding = [];
+  		var question_number = 0;
+  		var max_question_number = 2;
+
+  		console.log()
+
+  		$(document).ready(function() {
+		    $(".btn").click(function(){
+		        var className = $(this)[0].classList[1];
+		        if(className == "btn-success"){
+		        	survey_encoding.push(1);
+		        }
+		        else{
+		        	survey_encoding.push(0);
+		        }
+
+	        	console.log($('.jumbotron')[question_number]);
+	        	$('.jumbotron:eq(' + question_number + ')').removeClass('active-question');
+	        	$('.jumbotron:eq(' + question_number + ')').addClass('hidden-question');
+	        	setTimeout(function(){
+	        		$('.jumbotron:eq(' + question_number + ')').addClass('no-display-question');
+	        		$('.jumbotron:eq(' + question_number + ')').removeClass('hidden-question');
+
+	        		$('.jumbotron:eq(' + (question_number + 1) + ')').removeClass('no-display-question');
+	        		$('.jumbotron:eq(' + (question_number + 1) + ')').addClass('active-question');
+	        		question_number += 1;
+
+	        		if(question_number == max_question_number){
+	        			console.log(survey_encoding);
+	        		}
+
+
+	        	}, 500);
+		    }); 
+		});
   	</script>
 
 </body>

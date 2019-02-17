@@ -21,12 +21,29 @@ body{
 	min-width: 75px;
 }
 
+
+.active-question{
+	display: flex !important;
+	opacity: 1;
+}
+.hidden-question{
+	opacity: 0;
+}
+.no-display-question{
+	display: none !important;
+	opacity: 0;
+}
+
 .vertical-center {
   min-height: 85%;  /* Fallback for browsers do NOT support vh unit */
   min-height: 85vh; /* These two lines are counted as one :-)       */
 
   display: flex;
   align-items: center;
+}
+
+.jumbotron{
+	transition: opacity 0.5s;
 }
 
 .footer{
@@ -93,4 +110,32 @@ body{
   width: 60%;
   transform: rotate(45deg);
   transform-origin: 0 0;
+}
+
+
+.loadingspinner {
+	margin:auto;
+	pointer-events: none;
+	width: 2.5em;
+	height: 2.5em;
+	border: 0.4em solid transparent;
+	border-color: #eee;
+	border-top-color: #3E67EC;
+	border-radius: 50%;
+	-webkit-animation: loadingspin 1s linear infinite;
+	      animation: loadingspin 1s linear infinite;
+}
+
+@-webkit-keyframes loadingspin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes loadingspin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
