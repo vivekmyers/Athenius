@@ -24,7 +24,6 @@ app.post('/leg-api', function(req, res){
 	console.log(req.body);
 
 	var rootURL = "https://q4ktfaysw3.execute-api.us-east-1.amazonaws.com/treehacks/legislators?address="
-	rootURL += req.body.street;
 	rootURL += "," + req.body.city;
 	rootURL += "," + req.body.state;
 	rootURL += "+" + req.body.zip; 

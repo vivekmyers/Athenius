@@ -2,64 +2,60 @@
 <html>
 <head>
 	<title>Express Test</title>
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/index.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/index.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Treehacks 2019</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Treehacks</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
     <div class="container">
 
-      <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
+        <h3>Enter your address to find your legislators:</h3>
 
 		<form class="form">
 		  <div class="form-group">
-		    <label for="street-address">Street Address</label>
-		    <input type="text" class="form-control" id="street-address" name="street" placeholder="">
-		  </div>
-		  <div class="form-group">
-		    <label for="city">City</label>
+		    <label for="city">City:</label>
 		    <input type="text" class="form-control" id="city" name="city" placeholder="">
 		  </div>
-		  <div class="form-group">
-		    <label for="state">State</label>
-		    <input type="text" class="form-control" id="state" name="state" placeholder="">
-		  </div>
-		  <div class="form-group">
-		    <label for="zip-code">Zip Code</label>
-		    <input type="text" class="form-control" id="zip-code" name="zip" placeholder="">
+		  <div class="row">
+			  <div class="form-group col-sm-5">
+			    <label for="state">State:</label>
+			    <input type="text" class="form-control" id="state" name="state" placeholder="">
+			  </div>
+			  <div class="form-group col-sm-4">
+			    <label for="zip-code">Zip Code:</label>
+			    <input type="text" class="form-control" id="zip-code" name="zip" placeholder="">
+			  </div>
 		  </div>
 		  <button type="submit" class="btn btn-primary">Find Legislator</button>
 		</form>
 
-	  <h2>Senate:</h2>
-      <div id="senate-rep"></div>
-      <h2>House of Representatives:</h2>
-      <div id="house-rep"></div>
+		<div id="display-representatives" class="container">
+		  <h3>Senate:</h3>
+	      <div id="senate-rep" class="card-deck"></div>
+	      <h3>House of Representatives:</h3>
+	      <div id="house-rep" class="card-deck"></div>
+		</div>
 
     </div><!-- /.container -->
 
@@ -82,25 +78,41 @@
 					if(data.hasOwnProperty('senate')){
 						var outStr = "";
 						for(var i = 0; i < data.senate.number; i++){
-							outStr += "<div class=\"rep-name\">" + data.senate.officials[i].first_name + " " + data.senate.officials[i].last_name + "</div>";
-							outStr += "<div class=\"rep-part\">" + data.senate.officials[i].party + "</div>";
-							outStr += "<img src=\"" + data.senate.officials[i].photo + "\" style=\"width:200px;\">";
+							outStr += "<div class=\"card\">";
+							outStr += "<img class=\"card-img-top img-fluid\" src=\"";
+							outStr += data.senate.officials[i].photo;
+							outStr += "\" alt=\"Representative Image\">";
+							outStr += "<div class=\"card-block\">";
+							outStr += "<h4 class=\"card-title\">" + data.senate.officials[i].first_name + " " + data.senate.officials[i].last_name + "</h4>";
+							outStr += "<h5>" + data.senate.officials[i].party + "</h5>";
+							outStr += "<p class=\"card-text\">" + data.senate.officials[i].bio[0] + "</p>";
+							outStr += "</div></div>"
 						}
+
+
 						$('#senate-rep').html(outStr);
 					}
 
 					if(data.hasOwnProperty('house')){
 						var outStr = "";
 						for(var i = 0; i < data.house.number; i++){
-							outStr += "<div class=\"rep-name\">" + data.house.officials[i].first_name + " " + data.house.officials[i].last_name + "</div>";
-							outStr += "<div class=\"rep-part\">" + data.house.officials[i].party + "</div>";
-							outStr += "<img src=\"" + data.house.officials[i].photo + "\" style=\"width:200px;\">";
+							outStr += "<div class=\"card\">";
+							outStr += "<img class=\"card-img-top img-fluid\" src=\"";
+							outStr += data.house.officials[i].photo;
+							outStr += "\" alt=\"Representative Image\">";
+							outStr += "<div class=\"card-block\">";
+							outStr += "<h4 class=\"card-title\">" + data.house.officials[i].first_name + " " + data.house.officials[i].last_name + "</h4>";
+							outStr += "<h5>" + data.house.officials[i].party + "</h5>";
+							outStr += "<p class=\"card-text\">" + data.house.officials[i].bio[0] + "</p>";
+							outStr += "</div></div>"
 						}
 						$('#house-rep').html(outStr);
 					}
 
 				}
 			});
+
+	  		$("#display-representatives").addClass('show-rep-container');
 
 			return false;
 	  	});
