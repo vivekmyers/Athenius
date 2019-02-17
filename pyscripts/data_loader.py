@@ -97,6 +97,10 @@ def get_all_voting_records(loc, kind):
             arr[i][bill_to_int[bill]] = votes[bill]
             
     nominate_table = pd.read_csv('../data/nominate.csv')
-    return arr, np.array(col), np.array([dict(x) for x in all_bills])
+    processed = {a[0] + a[1:].split(',')[0].lower() + f' ({"R" if party_code == 200 else "D" if party_code == 100 else "I"}-{state_abbrev})': 
+                    (b, c) for _, a, b, c, state_abbrev, party_code in 
+                    nominate_table[['bioname', 'nominate_dim1', 'nominate_dim2', 'state_abbrev', 'party_code']].itertuples()}
+    return arr, np.array([(i, processed[i][0], processed[i][1]) 
+                            for i in col if i in processed]), np.array([dict(x) for x in all_bills])
 
 
