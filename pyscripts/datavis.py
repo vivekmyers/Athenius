@@ -10,8 +10,8 @@ import os
 #set flags
 republican = False
 #republican = True
-senate = False
-#senate = True
+#senate = False
+senate = True
 num_clust = 4
 
 begstr = ""
@@ -88,8 +88,8 @@ for i in ctz.cluster_centers_:
 	mindist = math.inf
 	minbill = None
 	for j in range(len(bills)):
-		if "QUORUM" in bills[j].get("vote-type"):
-			continue;
+		#if "QUORUM" in bills[j].get("vote-type") or "JOURNAL" in bills[j].get("legis-num") or "Adopting rules" in bills[j].get("vote-desc"):
+		#	continue;
 		s = 0
 		for k in range(arr.T[j].shape[0]):
 			s += abs(i[k] - arr.T[j][k])
