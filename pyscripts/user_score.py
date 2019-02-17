@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as plt
+import mpld3
 
 # TODO(nikhil): will be provided by nikhil
 # senate_centroids_d = [[0,0]]*34
@@ -66,10 +68,55 @@ def nominateScore(votes):
     return overall_avg
 
 def nearestNeighbors(votes, m=2, n=1):
-    """Find closest m members of senate followed by closest n members of house."""
+    """Find closest m members of senate followed by closest n members of house, and save plots."""
     score = nominateScore(votes)
     _, senatereps, _ = data_loader.senate_records()
     _, housereps, _ = data_loader.house_records()
+
+#     # plots
+#     fig = plt.figure()
+#     allreps = np.concatenate((senatereps, housereps))
+#     x = [rep[1] for rep in allreps]
+#     y = [rep[2] for rep in allreps]
+#     names = [rep[0] for rep in allreps]
+#     c = [("red" if rep[0][-5] == "R" else "blue") for rep in allreps]
+
+#     norm = plt.Normalize(1,4)
+
+#     fig,ax = plt.subplots()
+#     sc = plt.scatter(x,y,c=c, s=100, norm=norm)
+
+#     annot = ax.annotate("", xy=(0,0), xytext=(20,20),textcoords="offset points",
+#                         bbox=dict(boxstyle="round", fc="w"),
+#                         arrowprops=dict(arrowstyle="->"))
+#     annot.set_visible(False)
+
+#     def update_annot(ind):
+#         pos = sc.get_offsets()[ind["ind"][0]]
+#         annot.xy = pos
+#         text = "{}, {}".format(" ".join(list(map(str,ind["ind"]))), 
+#                                " ".join([names[n] for n in ind["ind"]]))
+#         annot.set_text(text)
+#         annot.get_bbox_patch().set_facecolor(cmap(norm(c[ind["ind"][0]])))
+#         annot.get_bbox_patch().set_alpha(0.4)
+
+#     def hover(event):
+#         vis = annot.get_visible()
+#         if event.inaxes == ax:
+#             cont, ind = sc.contains(event)
+#             if cont:
+#                 update_annot(ind)
+#                 annot.set_visible(True)
+#                 fig.canvas.draw_idle()
+#             else:
+#                 if vis:
+#                     annot.set_visible(False)
+#                     fig.canvas.draw_idle()
+
+#     fig.canvas.mpl_connect("motion_notify_event", hover)
+
+#     mpld3.save_html(fig, "nominateplot.html")
+    
     ret = []
     dists = []
     for i in range(len(senatereps)):
@@ -79,4 +126,5 @@ def nearestNeighbors(votes, m=2, n=1):
     for i in range(len(housereps)):
         dists.append((housereps[i][1]-score[0])**2 + (housereps[i][2]-score[1])**2)
     ret += [rep for _, rep in sorted(zip(dists, senatereps))][:n]
+    
     return ret
