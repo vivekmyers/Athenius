@@ -1,11 +1,11 @@
 import sys
+import numpy as np
 import data_loader
 from random import shuffle
+from user_score import nearestNeighbors
 
-arr, reps, bills = data_loader.senate_records()
-reps = [i for i in reps]
-shuffle(reps)
-
-for i in reps[:3]:
-    print(i[0])
+args = np.array([float(x) for x in sys.argv[1:]])
+nn = nearestNeighbors(np.ones(shape=[20]))
+for i in nn:
+    print(i)
 
