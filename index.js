@@ -36,7 +36,7 @@ app.post('/knn/', function(req, res) {
     for (let i of req.body.vector) {
         args.push(i);
     }
-    proc = spawn('python', args, {cwd: 'pyscripts'});
+    proc = spawn('python3', args, {cwd: 'pyscripts'});
     proc.stdout.on('data', names => {
         names = names.toString();
         output = [];

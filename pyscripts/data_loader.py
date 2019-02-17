@@ -4,6 +4,7 @@ import xml.etree.ElementTree as ET
 import numpy as np
 import sys
 import pickle
+import pandas as pd
 
 def senate_records(cached=False):
     '''
@@ -95,6 +96,7 @@ def get_all_voting_records(loc, kind):
         for bill in votes:
             arr[i][bill_to_int[bill]] = votes[bill]
             
+    nominate_table = pd.read_csv('../data/nominate.csv')
     return arr, np.array(col), np.array([dict(x) for x in all_bills])
 
 
