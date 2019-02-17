@@ -4,6 +4,12 @@ const spawn = require('child_process').spawn;
 const bodyParser = require('body-parser');
 const fs = require('fs');
 
+var arr = fs.readFileSync('image-links.csv').toString().split(/\n/g);
+images = arr.map(i => i.split(/, /g)).map(v => [v[0].split(' ')[1], v[1]]);
+image_dict = {};
+for (let x of images)
+    image_dict[x[0]] = x[1];
+
 var keys = JSON.parse(fs.readFileSync('api-keys.json', 'utf8'));
 
 //App setup
@@ -18,17 +24,18 @@ var server = app.listen(4000, function () {
 
 app.use(express.static(__dirname + '/public'));
 
-app.post('/knn/', function (req, res) {
+app.get('/congress/', function(req, res) {
+    let result = image_dict[req.query.name];
+    console.log(result);
+    res.send({name: req.query.name, url: result});
+});
+
+app.post('/knn/', function(req, res) {
     console.log(req.body);
     args = ['knn_get.py'];
     for (let i of req.body.vector) {
         args.push(i);
     }
-    var arr = fs.readFileSync('image-links.csv').toString().split(/\n/g);
-    images = arr.map(i => i.split(/, /g)).map(v => [v[0].split(' ')[1], v[1]]);
-    image_dict = {};
-    for (let x of images)
-        image_dict[x[0]] = x[1];
     proc = spawn('python', args, {cwd: 'pyscripts'});
     proc.stdout.on('data', names => {
         names = names.toString();
