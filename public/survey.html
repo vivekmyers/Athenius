@@ -162,7 +162,7 @@
 		        	survey_encoding.push(1);
 		        }
 		        else{
-		        	survey_encoding.push(0);
+		        	survey_encoding.push(-1);
 		        }
 
 	        	console.log($('.jumbotron')[question_number]);
@@ -182,6 +182,11 @@
 
 	        		if(question_number == max_question_number){
 	        			console.log(survey_encoding);
+
+	        			if(survey_encoding.length != 16){
+	        				survey_encoding = [1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1, 1, -1];
+	        			}
+
 						$.cookie("survey_encoding", JSON.stringify(survey_encoding));
 	        			$.ajax({
 							url: "/knn",
