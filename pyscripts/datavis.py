@@ -60,8 +60,8 @@ for i in ctz.cluster_centers_:
 	print()
 	print()
 	print()
-	print(f'{"-" * 20} A Center Follows {i} {"-" * 20}')
-	print()
+	print(f'{"-" * 20} A Center Follows {"-" * 20}')
+	print(i)
 	mindist = math.inf
 	minbill = None
 	for j in range(len(bills)):
@@ -75,8 +75,8 @@ for i in ctz.cluster_centers_:
 
 	print(bills[minbill].get("vote_title"))
 	print(arr.T[minbill])
-	print(mindist)
-	print(np.absolute(arr.T[minbill] - i))
+	#print(mindist)
+	#print(np.absolute(arr.T[minbill] - i))
 	print(np.sum(np.absolute(arr.T[minbill] - i)))
 
 """
