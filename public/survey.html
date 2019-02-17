@@ -30,6 +30,9 @@
       <li class="nav-item">
         <a class="nav-link" href="signup.html">Stay Aware</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">About</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -280,6 +283,27 @@
 </div>
 
 
+<div class="jumbotron vertical-center active-question">
+	<div class="col-4 question">
+
+		<div class="back-button">
+		  <div class="arrow-wrap">
+		    <span class="arrow-part-1"></span>
+		    <span class="arrow-part-2"></span>
+		    <span class="arrow-part-3"></span>
+		  </div>
+		</div>
+
+		<form class="form">
+			<h4 class="question-text">Congress and the United States should support the North Atlantic Treaty Organization.</h4>
+			<button type="button" class="btn btn-danger" onchange="nextQuestion(this)">No</button>
+			<button type="button" class="btn btn-success" onchange="nextQuestion(this)">Yes</button>
+		</form>
+
+    </div><!-- /.container -->
+</div>
+
+
 
 <div class="jumbotron vertical-center active-question">
 	<div class="col-4 question">
@@ -293,16 +317,15 @@
 		</div>
 
 		<form class="form">
-			<h4 class="question-text">Stronger Gun Control?</h4>
-			<button type="button" class="btn btn-danger" onchange="nextQuestion(this)">Disagree</button>
-			<button type="button" class="btn btn-success" onchange="nextQuestion(this)">Agree</button>
+			<h5 class="question-text">International organizations like the United Nations should not recognize or enter agreements with Palestinian state, because this will harm the security of Israel, run counter to the enduring bipartisan consensus on strengthening the U.S.-Israel relationship, and weaken support for such organizations.</h5>
+			<button type="button" class="btn btn-danger" onchange="nextQuestion(this)">No</button>
+			<button type="button" class="btn btn-success" onchange="nextQuestion(this)">Yes</button>
 		</form>
 
     </div><!-- /.container -->
 </div>
 
-
-<div class="jumbotron vertical-center no-display-question">
+<div class="jumbotron vertical-center active-question">
 	<div class="col-4 question">
 
 		<div class="back-button">
@@ -314,13 +337,34 @@
 		</div>
 
 		<form class="form">
-			<h4 class="question-text">Do you belive in climate change?</h4>
-			<button type="button" class="btn btn-danger" onchange="nextQuestion(this)">Disagree</button>
-			<button type="button" class="btn btn-success" onchange="nextQuestion(this)">Agree</button>
+			<h4 class="question-text">Congress should not prohibit taxpayer funded abortions.</h4>
+			<button type="button" class="btn btn-danger" onchange="nextQuestion(this)">No</button>
+			<button type="button" class="btn btn-success" onchange="nextQuestion(this)">Yes</button>
 		</form>
 
     </div><!-- /.container -->
 </div>
+
+<div class="jumbotron vertical-center active-question">
+	<div class="col-4 question">
+
+		<div class="back-button">
+		  <div class="arrow-wrap">
+		    <span class="arrow-part-1"></span>
+		    <span class="arrow-part-2"></span>
+		    <span class="arrow-part-3"></span>
+		  </div>
+		</div>
+
+		<form class="form">
+			<h4 class="question-text">Departments and agencies should submit a plan annually to the Office of Management and Budget (OMB) and Congress, including a list of policy-relevant questions and a list of data for facilitating the plan.</h4>
+			<button type="button" class="btn btn-danger" onchange="nextQuestion(this)">No</button>
+			<button type="button" class="btn btn-success" onchange="nextQuestion(this)">Yes</button>
+		</form>
+
+    </div><!-- /.container -->
+</div>
+
 
 <div id="last-question" class="jumbotron vertical-center no-display-question">
 	<div class="col-4 question">
@@ -350,7 +394,7 @@
 
   		var survey_encoding = [];
   		var question_number = 0;
-  		var max_question_number = 14;
+  		var max_question_number = 16;
 
   		console.log()
 
