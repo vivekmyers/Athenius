@@ -65,7 +65,17 @@ app.post('/knn', function(req, res) {
 app.post('/submit-email', function (req, res) {
     let entry = `${req.body.form.split('=')[1]}, ${req.body.cookie}\n`;
     console.log(entry);
-    fs.appendFile("database.txt", entry, err => {});
+    if (!entry.includes("%40")) {
+        res.send({result: 'Invalid Address'});
+        return;
+    }
+    fs.appendFile("database.txt", entry, err => {
+        if (!err) {
+            res.send({result: 'Success!'});
+        } else {
+            res.send({result: 'An error occured'});
+        }
+    });
 });
 
 app.post('/leg-api', function (req, res) {
