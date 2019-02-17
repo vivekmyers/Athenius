@@ -30,6 +30,9 @@
       <li class="nav-item">
         <a class="nav-link" href="signup.html">Stay Aware</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">About</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -108,11 +111,13 @@
 								outStr += "<div class=\"card\">";
 								outStr += "<img class=\"card-img-top img-fluid\" src=\"";
 								outStr += data.senate.officials[i].photo;
-								outStr += "\" alt=\"Representative Image\">";
+								outStr += "\" alt=\"Representative Image Not Found\">";
 								outStr += "<div class=\"card-block\">";
 								outStr += "<h4 class=\"card-title\">" + data.senate.officials[i].first_name + " " + data.senate.officials[i].last_name + "</h4>";
 								outStr += "<h5>" + data.senate.officials[i].party + "</h5>";
-								outStr += "<p class=\"card-text\">" + data.senate.officials[i].bio[0] + "</p>";
+								if(data.senate.officials[i].bio.length >=2){
+									outStr += "<p class=\"card-text\">" + data.senate.officials[i].bio[0] + "</p>";
+								}
 								outStr += "</div></div>"
 							}
 
@@ -130,11 +135,13 @@
 								outStr += "<div class=\"card\">";
 								outStr += "<img class=\"card-img-top img-fluid\" src=\"";
 								outStr += data.house.officials[i].photo;
-								outStr += "\" alt=\"Representative Image\">";
+								outStr += "\" alt=\"Representative Image Not Found\">";
 								outStr += "<div class=\"card-block\">";
 								outStr += "<h4 class=\"card-title\">" + data.house.officials[i].first_name + " " + data.house.officials[i].last_name + "</h4>";
 								outStr += "<h5>" + data.house.officials[i].party + "</h5>";
-								outStr += "<p class=\"card-text\">" + data.house.officials[i].bio[0] + "</p>";
+								if(data.house.officials[i].bio.length >=2){
+									outStr += "<p class=\"card-text\">" + data.house.officials[i].bio[0] + "</p>";
+								}
 								outStr += "</div></div>"
 							}
 							$('#house-rep').html(outStr);
