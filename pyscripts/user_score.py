@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import mpld3
+import sys
 import data_loader
 
 # TODO(nikhil): will be provided by nikhil
@@ -19,21 +20,16 @@ def nominateScoreFromSinglePoint(arr, reps, centroid, vote):
     centroid: coords of question in reps-basis
     vote: 1 for yea, -1 for nay
     """
-    ns = []
-    dists = []
-    for i in range(arr.shape[1]):
-        ns.append([0, 0, 0])
+    ns = np.zeros([arr.shape[1], 3])
+    num_select = 10
+    for i in sorted([x for x in range(arr.shape[1])], key=lambda k: np.linalg.norm(centroid - arr[:, k]))[:num_select]:
         for j in range(arr.shape[0]):
             if arr[j][i] == vote:
                 ns[i][0] += float(reps[j][1])
                 ns[i][1] += float(reps[j][2])
                 ns[i][2] += 1
-                dists.append(np.linalg.norm(centroid - arr[:, i]))
-    ns = np.array([n for _, n in sorted(zip(dists, ns))])
-    k = 5
-    count = 0
     sums = [0, 0, 0]
-    for i in range(k):
+    for i in range(num_select):
         sums[0] += ns[i][0]
         sums[1] += ns[i][1]
         sums[2] += ns[i][2]
