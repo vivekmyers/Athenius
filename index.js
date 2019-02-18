@@ -65,7 +65,7 @@ app.post('/knn', function(req, res) {
 });
 
 app.post('/submit-email', function (req, res) {
-    let entry = `${req.body.form.split('=')[1]}, ${req.body.cookie}\n`;
+    let entry = `${req.body.form.split('=')[1]}, ${req.body.cookie.survey_encoding}\n`;
     console.log(entry);
     if (!entry.includes("%40")) {
         res.send({result: 'Invalid Address'});
