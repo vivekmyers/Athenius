@@ -41,4 +41,4 @@ $ npm test						# starts web-server on port 4000
 
 ## Development challenges
 
-It turns out that the underlying analytics problem here was a lot more nontrivial than we originally thought.  In particular, 
+It turns out that the underlying analytics problem here was a lot more nontrivial than we originally thought.  In particular, k-Means is not perfect.
