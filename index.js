@@ -3,6 +3,7 @@ const request = require('request');
 const spawn = require('child_process').spawn;
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const nodemailer = require('nodemailer');
 
 var arr = fs.readFileSync('image-links.csv').toString().split(/\n/g);
 images = arr.map(i => i.split(/, /g)).map(v => [v[0].split(' ')[1], v[1]]);
@@ -71,6 +72,38 @@ app.post('/submit-email', function (req, res) {
         res.send({result: 'Invalid Address'});
         return;
     }
+
+    var mailText = "Hi there,";
+    mailText += "Thanks for signing up for Athenius! You've subscribed to our weekly newsletter where we send you fresh information";
+    mailText += " on the decisions your representatives make. We'll be sure to highlight votes that your legislators make that you might"
+    mailText += " not agree with so that you stay informed.";
+    mailText += "<br> ~ The Athenius Team";
+
+
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: keys.email.username,
+            pass: keys.email.password
+        }
+    });
+
+    var mailOptions = {
+        from: ' "Athenius" <' + keys.email.username + '>',
+        to: entry
+        subject: 'Welcome to Athenius!'
+        html: mailText
+    }
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            console.log(error);
+        }
+        else{
+            console.log('Email sent: ' + info.response);
+        }
+    })
+
     fs.appendFile("database.txt", entry, err => {
         if (!err) {
             res.send({result: 'Success!'});
